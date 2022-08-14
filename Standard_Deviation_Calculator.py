@@ -1,6 +1,4 @@
-
-
-#https://www.geeksforgeeks.org/python-program-convert-string-list/
+# Enter your data like this 2,3,4,5. It's main purpose is to calculate your population std and sample std
 
 from random import sample
 from re import A

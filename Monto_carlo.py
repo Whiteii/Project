@@ -1,11 +1,6 @@
 
-
-
-from itertools import count
 import math 
 import random
-from re import X
-from turtle import delay 
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np

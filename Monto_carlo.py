@@ -52,9 +52,10 @@ for i in range(number_of_simulation):
 
         plt.subplot(1,2,2) 
         plt.figure(1)
+        
+        
     if i%100  ==  1:
-        
-        
+    
         if isFirst1: 
             
             plt.scatter(inside_x_position,inside_y_position, c= 'Yellow' , s=50, label='Drop inside' ) 

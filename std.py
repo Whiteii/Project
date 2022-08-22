@@ -6,6 +6,10 @@ import math
 import random
 
 
+
+# this is a module I'm currently working on and updating. 
+
+
 # convert a string into a list
 def Convert(string):
     li = list(string.split(","))

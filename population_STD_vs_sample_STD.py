@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 # Also, download the std.py and import into here. 
 
 
-
+#The main reason I'm doing this is to collect sample data. Using the sample variance formula is more effective than the population variance formula. 
 
 
 plt.figure(figsize=(20,8), dpi = 100) 

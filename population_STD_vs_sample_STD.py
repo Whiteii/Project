@@ -8,6 +8,9 @@ import matplotlib as plt
 #Name: Liang Zhang 
 #Email Address: Lianghui732@gmail.com
 # generate 1000 random data. This represent as a population variance 
+# Also, download the std.py and import into here. 
+
+
 
 population_random_data = []
 for i in range(20000):

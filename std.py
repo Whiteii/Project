@@ -27,6 +27,12 @@ def sorting_list(list):
 num_list = [35,50,50,50,56,60,60,75,1]
 # check if the even or odd.
 
+
+# mean get affect by outlier 
+# Median doesn't get affect by outlier
+# Mode get affect by outlier
+
+
 # If the arithmetic_mean > median => we use central-tendency and IQR 
 def robust_central_tendency(list):
     new_list = sorting_list(list)
@@ -42,9 +48,9 @@ def robust_central_tendency(list):
         median = (new_list[i])
         print('median:',median)
         if arithmetic_mean > median:
-            print('use median as central-tendency and IQR')
-        else: 
-            print('use arthmetic mean as central-tendency and standard deviation')
+            print('distribution is postively skewed(Right-Skewed))')
+        elif arithmetic_mean < median: 
+            print('distribution is negatively skewed(Left-skewed))')
 
   
 robust_central_tendency(num_list)

@@ -1,3 +1,5 @@
+from cgitb import reset
+from lib2to3.pytree import convert
 from random import sample
 from re import A
 from statistics import variance
@@ -12,7 +14,7 @@ import random
 
 # convert a string into a list
 def Convert(string):
-    li = list(string.split(","))
+    li = list(string.split(','))
     return li
  
 # calculate population variance
@@ -27,6 +29,17 @@ def calculate_population_variance(str1, accumualted_variance = 0):
         #print(len(str1))
     return variance
 
+
+
+# calculate mean_absolute deviation 
+def mean_absolute_deviation(str1, mad = 0):
+    res = str1 
+    sample_mean = sum(res)/len(res)
+    for i in range(0,len(res)):
+        absolute_deviation = np.abs(str1[i] - sample_mean)/len(res)
+        mad += absolute_deviation
+    return mad
+        
 
 # calculate sample variance 
 def calculate_sample_variance(str1,accumualted_variance = 0):  

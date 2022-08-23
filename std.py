@@ -1,3 +1,4 @@
+from cgi import test
 from cgitb import reset
 from cmath import sqrt
 from lib2to3.pytree import convert
@@ -23,10 +24,24 @@ def sorting_list(list):
     return list 
         
 
-  
-  
-  
-            
+
+
+#calculate median
+def find_median(new_list): 
+    
+    if len(new_list)%2 == 0:
+        i = int(len(new_list)/2)
+        median =(new_list[i-1] + list[i])/2
+        print('median:',median)
+        
+    elif len(list)%2 == 1:
+        i = int((len(new_list)-1)/2)
+        median = (new_list[i])
+        print('median:',median)
+        
+    return median 
+
+        
 # convert a string into a list
 def Convert(string):
     li = list(string.split(','))
@@ -91,15 +106,11 @@ num_list = [35,50,50,50,56,60,60,75,1]
 # To find a robust_central_tency. The skewness of the distribution must be 0. this way it's not right skewed or left skewed that could be impacted by outlier.
 
  
-def robust_central_tendency(list): 
-    
-    
+def find_robust_central_tendency(list): 
     new_list = sorting_list(list)
     print(new_list)
     arithmetic_mean = sum(new_list)/len(new_list)
     print('arithmetic_mean:',arithmetic_mean)
-    
-    
     
     if len(new_list)%2 == 0:
         i = int(len(new_list)/2)
@@ -109,9 +120,7 @@ def robust_central_tendency(list):
         i = int((len(new_list)-1)/2)
         median = (new_list[i])
         print('median:',median) 
-        
-        
-        
+            
         #Case 1
         if arithmetic_mean > median:
             print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
@@ -124,14 +133,21 @@ def robust_central_tendency(list):
             print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
             print('distribution is negatively skewed(Left-skewed))')
 
-  
-robust_central_tendency(num_list)
+find_robust_central_tendency(num_list)
 
 
+#calculate z-scores 
+def find_z_scores(central_tendency,standard_deviation,z_scores):
+    one_std = central_tendency + standard_deviation
+    delta_one_std = np.abs(central_tendency - one_std)
+    print('z_scores:',(z_scores - central_tendency)/delta_one_std) 
+    
+find_z_scores(81,6.3,93)
+    
+    
 
-
-
-
+    
+    
 
 
 

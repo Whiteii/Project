@@ -1,4 +1,5 @@
 from cgitb import reset
+from cmath import sqrt
 from lib2to3.pytree import convert
 from random import sample
 from re import A, I
@@ -22,38 +23,6 @@ def sorting_list(list):
     return list 
         
 
-
-#IQR 
-num_list = [35,50,50,50,56,60,60,75,1]
-# check if the even or odd.
-
-
-# mean get affect by outlier 
-# Median doesn't get affect by outlier
-# Mode get affect by outlier
-
-
-# If the arithmetic_mean > median => we use central-tendency and IQR 
-def robust_central_tendency(list):
-    new_list = sorting_list(list)
-    print(new_list)
-    arithmetic_mean = sum(new_list)/len(new_list)
-    print('arithmetic_mean:',arithmetic_mean)
-    if len(new_list)%2 == 0:
-        i = int(len(new_list)/2)
-        median =(new_list[i-1] + list[i])/2
-        print('median:',median)
-    elif len(list)%2 == 1:
-        i = int((len(new_list)-1)/2)
-        median = (new_list[i])
-        print('median:',median)
-        if arithmetic_mean > median:
-            print('distribution is postively skewed(Right-Skewed))')
-        elif arithmetic_mean < median: 
-            print('distribution is negatively skewed(Left-skewed))')
-
-  
-robust_central_tendency(num_list)
   
   
   
@@ -111,7 +80,39 @@ def sample_of_data(list,amount_of_data):
 
 
 
+#IQR 
+num_list = [35,50,50,50,56,60,60,75,250]
+# check if the even or odd.
 
+
+# mean get affect by outlier 
+# Median doesn't get affect by outlier
+# Mode somewhat gets affect by outlier
+# To find a robust_central_tency. The skewness of the distribution must be 0. this way it's not right skewed or left skewed that could be impacted by outlier.
+
+ 
+def robust_central_tendency(list):
+    new_list = sorting_list(list)
+    print(new_list)
+    arithmetic_mean = sum(new_list)/len(new_list)
+    print('arithmetic_mean:',arithmetic_mean)
+    if len(new_list)%2 == 0:
+        i = int(len(new_list)/2)
+        median =(new_list[i-1] + list[i])/2
+        print('median:',median)
+    elif len(list)%2 == 1:
+        i = int((len(new_list)-1)/2)
+        median = (new_list[i])
+        print('median:',median)
+        if arithmetic_mean > median:
+            print(math.sqrt(calculate_population_variance(list)))
+            print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
+            print('distribution is postively skewed(Right-Skewed))')
+        elif arithmetic_mean < median: 
+            print('distribution is negatively skewed(Left-skewed))')
+
+  
+robust_central_tendency(num_list)
 
 
 

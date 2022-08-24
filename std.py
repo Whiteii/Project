@@ -4,7 +4,7 @@ from cmath import sqrt
 from lib2to3.pytree import convert
 from random import sample
 from re import A, I
-from statistics import median, variance
+from statistics import mean, median, variance
 import numpy as np
 import math
 import random
@@ -23,9 +23,6 @@ def sorting_list(list):
                   list[j] = temp # 5
     return list 
         
-
-
-
 #calculate median
 def find_median(new_list): 
     
@@ -96,7 +93,7 @@ def sample_of_data(list,amount_of_data):
 
 
 #IQR 
-num_list = [35,50,50,50,56,60,60,75,1]
+num_list = [11,17,21,18,2,3]
 # check if the even or odd.
 
 
@@ -120,18 +117,18 @@ def find_robust_central_tendency(list):
         i = int((len(new_list)-1)/2)
         median = (new_list[i])
         print('median:',median) 
-            
         #Case 1
-        if arithmetic_mean > median:
-            print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
-            print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
-            print('distribution is postively skewed(Right-Skewed))')
-            
+    if arithmetic_mean > median:
+
+        print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
+        print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
+        print('distribution is postively skewed(Right-Skewed))')       
         #Case 2    
-        elif arithmetic_mean < median:   
-            print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
-            print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
-            print('distribution is negatively skewed(Left-skewed))')
+    elif arithmetic_mean < median:   
+        print(arithmetic_mean,median)
+        print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
+        print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
+        print('distribution is negatively skewed(Left-skewed))')
 
 find_robust_central_tendency(num_list)
 
@@ -142,7 +139,19 @@ def find_z_scores(central_tendency,standard_deviation,z_scores):
     delta_one_std = np.abs(central_tendency - one_std)
     print('z_scores:',(z_scores - central_tendency)/delta_one_std) 
     
-find_z_scores(81,6.3,93)
+find_z_scores(81,6.3,65) 
+
+
+
+
+
+def beta(covariance, list):
+    variance = calculate_sample_variance(list) 
+    beta = covariance/variance
+    return beta                  
+
+
+
     
     
 

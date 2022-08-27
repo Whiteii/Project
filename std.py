@@ -7,7 +7,8 @@ from re import A, I
 from statistics import mean, median, variance
 import numpy as np
 import math
-import random
+import random 
+import statistics
 
 
 
@@ -24,21 +25,18 @@ def sorting_list(list):
     return list 
         
 #calculate median
-def find_median(new_list): 
-    
-    if len(new_list)%2 == 0:
-        i = int(len(new_list)/2)
-        median =(new_list[i-1] + list[i])/2
-        print('median:',median)
+def find_median(list): 
+    if len(list)%2 == 0:
+        i = int(len(list)/2)
+        median =(list[i-1] + list[i])/2
+        print('median:',median) 
         
     elif len(list)%2 == 1:
-        i = int((len(new_list)-1)/2)
-        median = (new_list[i])
+        i = int((len(list)-1)/2)
+        median = (list[i])
         print('median:',median)
-        
-    return median 
-
-        
+    return median  
+      
 # convert a string into a list
 def Convert(string):
     li = list(string.split(','))
@@ -107,48 +105,93 @@ def find_robust_central_tendency(list):
     new_list = sorting_list(list)
     print(new_list)
     arithmetic_mean = sum(new_list)/len(new_list)
-    print('arithmetic_mean:',arithmetic_mean)
+    #print('arithmetic_mean:',arithmetic_mean)
     
     if len(new_list)%2 == 0:
         i = int(len(new_list)/2)
         median =(new_list[i-1] + list[i])/2
-        print('median:',median)
+        #print('median:',median)
     elif len(list)%2 == 1:
         i = int((len(new_list)-1)/2)
         median = (new_list[i])
         print('median:',median) 
         #Case 1
     if arithmetic_mean > median:
-
         print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
         print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
         print('distribution is postively skewed(Right-Skewed))')       
         #Case 2    
-    elif arithmetic_mean < median:   
+    elif arithmetic_mean < median: 
         print(arithmetic_mean,median)
         print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
         print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
         print('distribution is negatively skewed(Left-skewed))')
 
-find_robust_central_tendency(num_list)
+#find_robust_central_tendency(num_list)
 
 
 #calculate z-scores 
 def find_z_scores(central_tendency,standard_deviation,z_scores):
     one_std = central_tendency + standard_deviation
     delta_one_std = np.abs(central_tendency - one_std)
-    print('z_scores:',(z_scores - central_tendency)/delta_one_std) 
+    #print('z_scores:',(z_scores - central_tendency)/delta_one_std) 
     
 find_z_scores(81,6.3,65) 
 
 
-
-
-
+#WIP
 def beta(covariance, list):
-    variance = calculate_sample_variance(list) 
+    variance = calculate_sample_variance(list)
+    #print('variance:',variance)
+    #print('covariance:',covariance)
     beta = covariance/variance
-    return beta                  
+    #print('beta:',beta)
+    return beta       
+
+
+def lower_quartile(list):
+    Q1_list = []
+    new_list = sorting_list(list)
+    if len(new_list)%2 == 0:
+        for i in range(0,int(len(new_list)/2)): 
+            test = new_list[i]
+            Q1_list.append(test)
+            if i == ((int(len(new_list))/2) - 1):
+                #print(Q1_list)
+                Q1 = find_median(Q1_list)          
+    return Q1 
+
+
+
+def upper_quartile(list):
+    Q3_list = []
+    new_list = sorting_list(list) 
+    for j in range(int(len(new_list)/2), int(len(new_list))): 
+        test2 = new_list[j] #5,6,7,8 in ilteration fashion 
+        Q3_list.append(test2)
+        print(j)
+        if j == (int(len(new_list)) - 1):
+            #print(Q3_list) # this should print [5,6,7,8]
+            Q3 = find_median(Q3_list)
+    return Q3 
+
+
+
+
+
+
+# Interquartile range
+def IQR(list): 
+    Q3 = upper_quartile(list)
+    Q1 = lower_quartile(list)
+    IQR = Q3 - Q1
+    print('IQR:',IQR)
+    return IQR 
+
+
+        
+
+        
 
 
 

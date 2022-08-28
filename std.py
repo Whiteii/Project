@@ -10,7 +10,7 @@ import math
 import random 
 import statistics
 
-
+http://www.z-table.com/
 
 # this is a module I'm currently working on and updating. 
 

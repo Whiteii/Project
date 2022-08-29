@@ -175,11 +175,6 @@ def upper_quartile(list):
             Q3 = find_median(Q3_list)
     return Q3 
 
-
-
-
-
-
 # Interquartile range
 def IQR(list): 
     Q3 = upper_quartile(list)
@@ -189,6 +184,8 @@ def IQR(list):
     return IQR 
 
 
+
+# Probablity density calculation 
         
 
         

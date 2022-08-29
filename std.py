@@ -185,7 +185,23 @@ def IQR(list):
 
 
 
-# Probablity density calculation 
+# Probablity density calculation. Finding the area between lower and upper little. 
+def p_(standard_deviation,central_tendency,lower_limit,upper_limit,area =0,x_position = 0):
+    accumulate_area = 0
+
+    while x_position < upper_limit:   
+        dx = (upper_limit - lower_limit)/1000        
+        x_position = x_position + dx
+        first_expression = 1/np.sqrt(2 * math.pi * standard_deviation ** 2)
+        z_score = -1/2 * ((x_position - central_tendency)/standard_deviation) ** 2
+        second_expression = np.power(np.exp(1),z_score)
+        height = first_expression * second_expression 
+        area = height * dx
+        accumulate_area = area + accumulate_area 
+    return accumulate_area
+
+a = p_(1,0,0,1)
+print('area',a)
         
 
         

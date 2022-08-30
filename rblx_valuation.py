@@ -1,10 +1,14 @@
-from ast import Store
-from re import X
-from sys import set_coroutine_origin_tracking_depth
+
 import finance
 import std as stat 
 import numpy as np
-import statistics
+import statistics 
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+
+
+
 
 #assume
 #risk free rate is 0.02 
@@ -23,56 +27,40 @@ cost_of_equity_beta_is_1 = finance.CAPM_BETA1(0.02,0.09)
 #finding robust central tendency 
 
 
+
+
 price_change = open('price_change.txt','r')
 x = price_change.read()
 b = x.split('\n')
-<<<<<<< HEAD
-a = b
-=======
-
 a = b
 
->>>>>>> f3485b498349f28db08cf3c03d2928269d595560
 daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
     
 #print(daily_price_change)
 
-<<<<<<< HEAD
 
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> f3485b498349f28db08cf3c03d2928269d595560
 stat.find_robust_central_tendency(daily_price_change)
-
-price_median = stat.find_median(daily_price_change)
-
-print('price_median',price_median)
- 
-price_mean = statistics.mean(daily_price_change)
-print('price_mean',price_mean)
-
+price_change_median = stat.find_median(daily_price_change)
+#print('price_median',price_median) 
+price_change_mean = statistics.mean(daily_price_change)
+#print('price_mean',price_mean)
 population_variance = stat.calculate_population_variance(daily_price_change)
-
-print('population_variance:', population_variance) 
-
-one_standard_deviation = np.sqrt(population_variance)
-
-print('standard_DEVIATION:',one_standard_deviation) 
-
-
-https://medium.com/analytics-vidhya/monte-carlo-simulations-for-predicting-stock-prices-python-a64f53585662
+#print('population_variance:', population_variance) 
+standard_deviation = np.sqrt(population_variance)
+#print('standard_DEVIATION:',standard_deviation) 
 
 
 
-test = stat.probablity_density_function(0.06299598659374768,0,-0.06299598659374768,0.06299598659374768)
-print(test)
+
+# Read this link over here https://www.geeksforgeeks.org/how-to-plot-normal-distribution-over-histogram-in-python/ 
+#https://www.desmos.com/calculator/pyviauerg0
+
+normal_distribution = stat.probablity_density_function(0.06299598659374768,0,-0.06299598659374768,0.06299598659374768)
+#print(normal_distribution)
+
+domain = np.arange(-4, 5, 1)
+plt.hist(domain, norm.pdf(domain,0,standard_deviation))
+plt.show()
+

@@ -23,29 +23,19 @@ cost_of_equity_beta_is_1 = finance.CAPM_BETA1(0.02,0.09)
 #finding robust central tendency 
 
 
-
-
-
 price_change = open('price_change.txt','r')
 
 x = price_change.read()
 
 b = x.split('\n')
 
-
 a = b
-
 
 daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
     
 #print(daily_price_change)
-
-
-
-
-
 
 
 stat.find_robust_central_tendency(daily_price_change)

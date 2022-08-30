@@ -117,14 +117,14 @@ def find_robust_central_tendency(list):
         #print('median:',median) 
         #Case 1
     if arithmetic_mean > median:
-        print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
-        print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
+        #print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
+        #print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
         print('distribution is postively skewed(Right-Skewed)) so use median')       
         #Case 2    
     elif arithmetic_mean < median: 
         
-        print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
-        print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
+        #print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
+        #print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
         print('distribution is negatively skewed(Left-skewed)) so use median')
 
 #find_robust_central_tendency(num_list)
@@ -184,10 +184,9 @@ def IQR(list):
     return IQR 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> f3485b498349f28db08cf3c03d2928269d595560
+
+
 # work in progress
 # probablity density function 
 def probablity_density_function(standard_deviation,central_tendency,lower_limit,upper_limit,area =0):
@@ -207,7 +206,7 @@ def probablity_density_function(standard_deviation,central_tendency,lower_limit,
     return accumulate_area
 
 a = probablity_density_function(1,0,-1,1)
-print('area',a)
+#print('area',a)
         
 
         

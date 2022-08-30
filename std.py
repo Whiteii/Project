@@ -10,7 +10,7 @@ import math
 import random 
 import statistics
 
-http://www.z-table.com/
+#http://www.z-table.com/
 
 # this is a module I'm currently working on and updating. 
 
@@ -29,12 +29,12 @@ def find_median(list):
     if len(list)%2 == 0:
         i = int(len(list)/2)
         median =(list[i-1] + list[i])/2
-        print('median:',median) 
+        #print('median:',median) 
         
     elif len(list)%2 == 1:
         i = int((len(list)-1)/2)
         median = (list[i])
-        print('median:',median)
+        #print('median:',median)
     return median  
       
 # convert a string into a list
@@ -114,18 +114,18 @@ def find_robust_central_tendency(list):
     elif len(list)%2 == 1:
         i = int((len(new_list)-1)/2)
         median = (new_list[i])
-        print('median:',median) 
+        #print('median:',median) 
         #Case 1
     if arithmetic_mean > median:
         print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
         print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
-        print('distribution is postively skewed(Right-Skewed))')       
+        print('distribution is postively skewed(Right-Skewed)) so use median')       
         #Case 2    
     elif arithmetic_mean < median: 
-        print(arithmetic_mean,median)
+        
         print('Population_Standard Deviation: ',math.sqrt(calculate_sample_variance(list)))
         print('Pearson Mode Skness:', 3 * (arithmetic_mean - median)/math.sqrt(calculate_sample_variance(list)))
-        print('distribution is negatively skewed(Left-skewed))')
+        print('distribution is negatively skewed(Left-skewed)) so use median')
 
 #find_robust_central_tendency(num_list)
 
@@ -180,7 +180,7 @@ def IQR(list):
     Q3 = upper_quartile(list)
     Q1 = lower_quartile(list)
     IQR = Q3 - Q1
-    print('IQR:',IQR)
+    #print('IQR:',IQR)
     return IQR 
 
 
@@ -201,7 +201,7 @@ def p_(standard_deviation,central_tendency,lower_limit,upper_limit,area =0,x_pos
     return accumulate_area
 
 a = p_(1,0,0,1)
-print('area',a)
+#print('area',a)
         
 
         

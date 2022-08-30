@@ -37,7 +37,6 @@ for element in a:
     
 #print(daily_price_change)
 
-
 stat.find_robust_central_tendency(daily_price_change)
 
 price_median = stat.find_median(daily_price_change)
@@ -55,6 +54,9 @@ population_standard_deviation = np.sqrt(population_variance)
 
 print('population_standard_DEVIATION:',population_standard_deviation) 
 
+
+
+https://medium.com/analytics-vidhya/monte-carlo-simulations-for-predicting-stock-prices-python-a64f53585662
 
 
 

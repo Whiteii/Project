@@ -23,19 +23,23 @@ cost_of_equity_beta_is_1 = finance.CAPM_BETA1(0.02,0.09)
 #finding robust central tendency 
 
 
-
-
-
 price_change = open('price_change.txt','r')
 x = price_change.read()
 b = x.split('\n')
+<<<<<<< HEAD
 a = b
+=======
+
+a = b
+
+>>>>>>> f3485b498349f28db08cf3c03d2928269d595560
 daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
     
 #print(daily_price_change)
 
+<<<<<<< HEAD
 
 
 
@@ -46,6 +50,8 @@ for element in a:
 
 
 
+=======
+>>>>>>> f3485b498349f28db08cf3c03d2928269d595560
 stat.find_robust_central_tendency(daily_price_change)
 
 price_median = stat.find_median(daily_price_change)
@@ -62,6 +68,9 @@ print('population_variance:', population_variance)
 one_standard_deviation = np.sqrt(population_variance)
 
 print('standard_DEVIATION:',one_standard_deviation) 
+
+
+https://medium.com/analytics-vidhya/monte-carlo-simulations-for-predicting-stock-prices-python-a64f53585662
 
 
 

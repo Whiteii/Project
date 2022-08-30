@@ -184,7 +184,10 @@ def IQR(list):
     return IQR 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f3485b498349f28db08cf3c03d2928269d595560
 # work in progress
 # probablity density function 
 def probablity_density_function(standard_deviation,central_tendency,lower_limit,upper_limit,area =0):

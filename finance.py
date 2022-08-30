@@ -1,11 +1,11 @@
 from statistics import covariance
 from typing import List
-import std 
+import mystat
 import math
 import numpy as np 
 
 def CAPM(risk_free_rate,covariance,list,market_return): 
-    expected_return_of_security = risk_free_rate + std.beta(covariance,list) * (market_return - risk_free_rate) 
+    expected_return_of_security = risk_free_rate + mystat.beta(covariance,list) * (market_return - risk_free_rate) 
     return expected_return_of_security 
 
 
@@ -28,4 +28,4 @@ def WACC(Equity,Debt,covariance,list,cost_Of_debt,tax_rate):
 #rblx 
 #CHECK_CALCULATION  
 list = [1,2,3,4,5,6,7,8]
-std.find_median(list)
+mystat.find_median(list)

@@ -27,20 +27,18 @@ cost_of_equity_beta_is_1 = finance.CAPM_BETA1(0.02,0.09)
 
 
 price_change = open('price_change.txt','r')
-
 x = price_change.read()
-
 b = x.split('\n')
-
-
 a = b
-
-
 daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
     
 #print(daily_price_change)
+
+
+
+
 
 
 
@@ -61,10 +59,11 @@ population_variance = stat.calculate_population_variance(daily_price_change)
 
 print('population_variance:', population_variance) 
 
-population_standard_deviation = np.sqrt(population_variance)
+one_standard_deviation = np.sqrt(population_variance)
 
-print('population_standard_DEVIATION:',population_standard_deviation) 
-
-
+print('standard_DEVIATION:',one_standard_deviation) 
 
 
+
+test = stat.probablity_density_function(0.06299598659374768,0,-0.06299598659374768,0.06299598659374768)
+print(test)

@@ -25,12 +25,12 @@ for element in a:
     daily_price_change.append(float(element))
     
 
-stat.find_robust_central_tendency(daily_price_change)
+########################################################################################
 
+stat.find_robust_central_tendency(daily_price_change)
 
 median = stat.find_median(daily_price_change)
 print('median',median)
-
 
 price_change_mean = statistics.mean(daily_price_change) 
 print('price_change_mean',price_change_mean)
@@ -40,6 +40,9 @@ standard_deviation_samp = np.sqrt(population_variance)
 print('standard_DEVIATION:',standard_deviation_samp)  
 
 
+
+
+########################################################################################
 probablity = stat.probablity_density_function(standard_deviation_samp,median,-0.06299598659374768,0.06299598659374768)
 print(probablity)
 domain = np.arange(-4, 5, 1)

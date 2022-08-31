@@ -3,7 +3,13 @@ import mystat
 import numpy as np
 import statistics 
 import matplotlib.pyplot as plt
-from scipy.stats import norm
+from scipy.stats import norm 
+
+
+
+License Copyright: Unknown.
+License License: Unknown.
+License Contact: Unknown.
 
 
 

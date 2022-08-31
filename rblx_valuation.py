@@ -5,6 +5,11 @@ import statistics
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
+
+
+
+https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
+
 #risk free rate is 0.02 
 #Market Risk Return : 0.09 
 #Beta : dafault is 1 

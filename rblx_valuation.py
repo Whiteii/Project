@@ -7,12 +7,6 @@ from scipy.stats import norm
 
 
 
-License Copyright: Unknown.
-License License: Unknown.
-License Contact: Unknown.
-
-
-
 
 https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
 

@@ -5,13 +5,6 @@ import statistics
 import matplotlib.pyplot as plt
 from scipy.stats import norm 
 
-
-
-
-
-
-
-
 #https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
 # Calculating WACC 
 ################################################################################################################################################################################
@@ -40,14 +33,8 @@ rblx_return_in_list = [1,2,3,4,5,6,7,8,9]
 wacc = finance.WACC(rblx_equity,rblx_debt,rblx_covariance,rblx_return_in_list,cost_of_debt,0.10) 
 
 
-
 #list is the stock_market
-
-
-
-
 ################################################################################################################################################################################
-
 # Converting string of list into float of list using note files 
 
 note_files = open('%price_change.txt','r')

@@ -8,8 +8,13 @@ from scipy.stats import norm
 
 
 
-https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
 
+
+
+
+#https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
+# Calculating WACC 
+################################################################################################################################################################################
 #risk free rate is 0.02 
 #Market Risk Return : 0.09 
 #Beta : dafault is 1 
@@ -17,22 +22,46 @@ https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
 cost_of_equity = finance.CAPM(0.02,0.011,[0.07,0.14,0.23,-0.04,-0.16,0.6,-0.8,0.11,0.25],0.09)
 cost_of_equity_beta_is_1 = finance.CAPM_BETA1(0.02,0.09)
 
+#https://www.spglobal.com/marketintelligence/en/news-insights/latest-news-headlines/roblox-places-1b-of-senior-notes-at-par-to-yield-3-875-terms-67270896
+#RBLX issues a Senior Note at 3.875% at 100
+#Amount 1 billion 
 
-#Convert daily price change from list of string to list of float 
+#I'm going to use 
+rblx_equity = 22686048086 
+rblx_debt = 988345
+rblx_covariance = 1
+
+
+
+Ratings = 'BB'
+US_YEAR_Treasury = 3.253
+cost_of_debt = finance.Debt_Rating_approach('BB',3.253)
+rblx_return_in_list = [1,2,3,4,5,6,7,8,9]
+wacc = finance.WACC(rblx_equity,rblx_debt,rblx_covariance,rblx_return_in_list,cost_of_debt,0.10) 
+
+
+
+#list is the stock_market
+
+
+
+
+################################################################################################################################################################################
+
+# Converting string of list into float of list using note files 
+
 note_files = open('%price_change.txt','r')
 x = note_files.read()
 b = x.split('\n')
 a = b
 
+
 daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
-    
 
 ################################################################################################################################################################################
-
 mystat.find_robust_central_tendency(daily_price_change)
-
 median = mystat.find_median(daily_price_change)
 print('median',median)
 
@@ -43,14 +72,16 @@ population_variance = mystat.calculate_population_variance(daily_price_change)
 standard_deviation_samp = np.sqrt(population_variance)
 print('standard_DEVIATION:',standard_deviation_samp)  
 
-
 ################################################################################################################################################################################
 #Gaussian distribution also known as the normal distribution 
-
-
 #https://www.desmos.com/calculator/pyviauerg0
 probablity = mystat.probablity_density_function(standard_deviation_samp,median,-standard_deviation_samp,standard_deviation_samp)
 print(probablity)
 domain = np.arange(-4, 5, 1)
 plt.plot(domain, norm.pdf(domain,0,standard_deviation_samp))
-plt.show()
+plt.show() 
+
+#1) ----> check cost_of_debt <----- 
+#2) ----> check cost_of_equity <----
+#3)----> check CAPM calculation <-----
+#4)----> check WACC calculation < ---- 

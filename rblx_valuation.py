@@ -28,13 +28,9 @@ daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
 
-
-
 rblx_total_equity = 22686048086 
 rblx_total_debt = 988345
 rblx_covariance = 0.11
-
-
 
 Ratings = 'BB'
 US_YEAR_Treasury_Yield = 3.253
@@ -55,8 +51,6 @@ standard_deviation_samp = np.sqrt(population_variance)
 print('standard_DEVIATION:',standard_deviation_samp)  
 
 ################################################################################################################################################################################
-
-
 #Gaussian distribution also known as the normal distribution 
 #https://www.desmos.com/calculator/pyviauerg0
 probablity = mystat.probablity_density_function(standard_deviation_samp,median,-standard_deviation_samp,standard_deviation_samp)
@@ -70,7 +64,6 @@ print('cost_of_debt:',rblx_cost_of_debt) #pass
 
 #2) ----> check cost_of_equity <----  
 print('cost_of_equity',rblx_cost_of_equity) # pass
-
 
 #3)----> check WACC calculation < ---- 
 print('WACC:',finance.WACC(rblx_total_equity,rblx_total_debt,rblx_cost_of_equity,rblx_cost_of_debt,0)) # pass 

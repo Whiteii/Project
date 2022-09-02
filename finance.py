@@ -10,15 +10,11 @@ import numpy as np
 
 
 # The cost of equity with a pre-determine covariance. 
-<<<<<<< HEAD
 def CAPM(risk_free_rate,covariance,price_change_in_list,market_return): 
     expected_return_of_security = risk_free_rate + mystat.beta(covariance,price_change_in_list) * (market_return - risk_free_rate) 
     print('beta',mystat.beta(covariance,price_change_in_list))
-=======
-def CAPM(risk_free_rate,covariance,list,market_return): 
-    expected_return_of_security = risk_free_rate + mystat.beta(covariance,list) * (market_return - risk_free_rate) 
->>>>>>> 8f3fab48e5c45e0c7373ac6334a1f40d6d18884d
-    return expected_return_of_security 
+    return expected_return_of_security
+
 
 #essentially the calculation for cost of equity
 def CAPM_BETA1(risk_free_rate,market_return, beta = 1): 
@@ -27,8 +23,7 @@ def CAPM_BETA1(risk_free_rate,market_return, beta = 1):
 
 
 
-<<<<<<< HEAD
-=======
+
 #three method to calculate for bps = 1/100 
 
 # https://www.researchgate.net/figure/Estimated-default-spreads-by-credit-rating_tbl2_288227112
@@ -41,20 +36,13 @@ def CAPM_BETA1(risk_free_rate,market_return, beta = 1):
 #3) Debt Rating approach <-- Using this
 #4) Synethetic Rating Approach 
 #5) Interest on Debt Approach 
->>>>>>> 8f3fab48e5c45e0c7373ac6334a1f40d6d18884d
 
 
 
 
 def Debt_Rating_approach(search_for_rating,risk_free_rate):  
-<<<<<<< HEAD
     ''' for passing into the paramter for risk_free_rate. Based on general convention we use 10 YRS yield'''
     
-=======
-
-    ''' for passing into the paramter for risk_free_rate. Based on general convention we use 10 YRS yield'''
-
->>>>>>> 8f3fab48e5c45e0c7373ac6334a1f40d6d18884d
     # Using fitch rating 
     rating = ['AAA','AA','A+','A','A-','BBB','BB','B+','B','B-','CCC','CC','C','D']
     #print(len(rating)) 
@@ -79,10 +67,5 @@ def WACC(Equity,Debt,cost_of_equity,cost_Of_debt,tax_rate):
     Wacc = (Weighted_Equity * cost_of_equity) + (Weighted_Debt * cost_Of_debt * (1 - tax_rate))
     return  Wacc 
 
-<<<<<<< HEAD
-=======
-#rblx 
-#CHECK_CALCULATION  
-list = [1,2,3,4,5,6,7,8]
-mystat.find_median(list)
->>>>>>> 8f3fab48e5c45e0c7373ac6334a1f40d6d18884d
+
+

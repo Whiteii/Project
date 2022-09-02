@@ -16,11 +16,6 @@ from scipy.stats import norm
 #5) Interest on Debt Approach 
 #https://www.spglobal.com/marketintelligence/en/news-insights/latest-news-headlines/roblox-places-1b-of-senior-notes-at-par-to-yield-3-875-terms-67270896
 
-
-
-
-
-
 ################################################################################################################################################################################
 # Converting string of list into float of list using note files 
 note_files = open('%price_change.txt','r')
@@ -71,18 +66,12 @@ plt.plot(domain, norm.pdf(domain,0,standard_deviation_samp))
 plt.show() 
 
 #1) ----> check cost_of_debt <-----   
-
 print('cost_of_debt:',rblx_cost_of_debt) #pass
 
-
-
-
 #2) ----> check cost_of_equity <----  
-
-
 print('cost_of_equity',rblx_cost_of_equity) # pass
 
 
-#4)----> check WACC calculation < ---- 
+#3)----> check WACC calculation < ---- 
 print('WACC:',finance.WACC(rblx_total_equity,rblx_total_debt,rblx_cost_of_equity,rblx_cost_of_debt,0)) # pass 
 

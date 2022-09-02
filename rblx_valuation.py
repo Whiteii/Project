@@ -80,9 +80,9 @@ print('cost_of_debt:',rblx_cost_of_debt) #pass
 #2) ----> check cost_of_equity <----  
 
 
-print('cost_of_equity',rblx_cost_of_equity) # did not pass
+print('cost_of_equity',rblx_cost_of_equity) # pass
 
 
 #4)----> check WACC calculation < ---- 
-print('WACC:',finance.WACC(rblx_total_equity,rblx_total_debt,rblx_cost_of_equity,rblx_cost_of_debt,0))
+print('WACC:',finance.WACC(rblx_total_equity,rblx_total_debt,rblx_cost_of_equity,rblx_cost_of_debt,0)) # pass 
 

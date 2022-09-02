@@ -8,6 +8,9 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm 
 
 
+---> read this <---
+
+  
 # Risk Free Rate we use is the 10-year treasury bond 
 #1) YTM Method(Can't apply)
 #2) taking the interest expense/Book Value of Debt 

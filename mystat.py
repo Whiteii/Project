@@ -5,10 +5,12 @@ from lib2to3.pytree import convert
 from random import sample
 from re import A, I
 from statistics import mean, median, variance
+from tkinter import E
 import numpy as np
 import math
 import random 
-import statistics
+import statistics 
+import time
 
 #http://www.z-table.com/
 
@@ -22,7 +24,58 @@ def sorting_list(list):
                   temp = list[i] #5
                   list[i] = list[j] #4
                   list[j] = temp # 5
+    return list    
+
+
+
+
+
+
+#randomly sort a list 
+
+
+
+# 0 0 
+# 0 1 
+# 0 2 
+# 0 3
+# ..........
+
+
+def randomly_sorting_a_list(enter_your_list):
+    
+    
+    b = 0 
+    list = [] 
+    for i in range(0,len(enter_your_list)):
+        a = np.random.randint(0,len(enter_your_list))   
+        b = a 
+        print(b)  
+        time.sleep(2)
+            
+            
+            
+                 
     return list 
+
+        
+        
+        
+        
+        
+        
+        
+test = [1,2,3,4,5,6,7]        
+randomly_sorting_a_list(test) 
+        
+    
+
+
+
+
+
+
+
         
 #calculate median
 def find_median(list): 

@@ -12,7 +12,7 @@ import numpy as np
 # The cost of equity with a pre-determine covariance. 
 def CAPM(risk_free_rate,covariance,price_change_in_list,market_return): 
     expected_return_of_security = risk_free_rate + mystat.beta(covariance,price_change_in_list) * (market_return - risk_free_rate) 
-    print('beta',mystat.beta(covariance,price_change_in_list))
+    #print('beta',mystat.beta(covariance,price_change_in_list))
     return expected_return_of_security
 
 

@@ -143,7 +143,7 @@ find_z_scores(81,6.3,65)
 def beta(covariance, list):
     variance = calculate_sample_variance(list)
     beta = covariance/variance
-    print('beta:',beta)
+    #print('beta:',beta)
     return beta       
 
 

@@ -25,6 +25,7 @@ from scipy.stats import norm
 #3) --> Debt Rating approach <-- Using this
 #4) Synethetic Rating Approach 
 #5) Interest on Debt Approach 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
@@ -34,6 +35,10 @@ from scipy.stats import norm
 
 #list is the stock_market
 =======
+>>>>>>> 7c7ddd995f8faa189f82c940e4722a841a4e32b5
+=======
+#https://www.spglobal.com/marketintelligence/en/news-insights/latest-news-headlines/roblox-places-1b-of-senior-notes-at-par-to-yield-3-875-terms-67270896
+
 >>>>>>> 7c7ddd995f8faa189f82c940e4722a841a4e32b5
 ################################################################################################################################################################################
 # Converting string of list into float of list using note files 
@@ -92,6 +97,7 @@ print('cost_of_debt:',rblx_cost_of_debt) #pass
 
 #2) ----> check cost_of_equity <----  
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 print('cost_of_equity',rblx_cost_of_equity) #pass
@@ -102,6 +108,10 @@ print('WACC:',finance.WACC(rblx_total_equity,rblx_total_debt,rblx_cost_of_equity
 =======
 print('cost_of_equity',rblx_cost_of_equity) # pass
 
+=======
+print('cost_of_equity',rblx_cost_of_equity) # pass
+
+>>>>>>> 7c7ddd995f8faa189f82c940e4722a841a4e32b5
 #3)----> check WACC calculation < ---- 
 print('WACC:',finance.WACC(rblx_total_equity,rblx_total_debt,rblx_cost_of_equity,rblx_cost_of_debt,0)) # pass 
 

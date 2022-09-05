@@ -4,7 +4,7 @@ import numpy as np
 import statistics 
 import matplotlib.pyplot as plt
 from scipy.stats import norm 
-import pandas as pd  
+import pandas as pd   
 
 
 #turning a string of list to float of list 
@@ -19,7 +19,7 @@ for element in a:
 #>------------------------------------------------------------------------------<
 
 #IN THOUSANDS 
-df = pd.data('RBLX_Balancesheet.csv')
+df = pd.read_csv('RBLX_Balancesheet.csv')
 print(df)
 
 

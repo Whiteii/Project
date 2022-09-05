@@ -6,6 +6,12 @@ import statistics
 import matplotlib.pyplot as plt
 from scipy.stats import norm 
 
+
+#>>>>> this is a draft <<<<<< 
+
+
+
+
 #https://iopscience.iop.org/article/10.1088/1742-6596/1377/1/012016/pdf
 # Calculating WACC 
 ################################################################################################################################################################################
@@ -21,12 +27,7 @@ from scipy.stats import norm
 #5) Interest on Debt Approach 
 
 
-
-
-
-
 #list is the stock_market
-
 #https://www.spglobal.com/marketintelligence/en/news-insights/latest-news-headlines/roblox-places-1b-of-senior-notes-at-par-to-yield-3-875-terms-67270896
 
 ################################################################################################################################################################################

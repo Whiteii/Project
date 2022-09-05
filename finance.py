@@ -1,5 +1,4 @@
-from statistics import covariance
-from typing import List
+
 import mystat 
 import math
 import numpy as np 

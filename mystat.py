@@ -35,41 +35,48 @@ def sorting_list(list):
 
 
 
-# 0 0 
-# 0 1 
-# 0 2 
-# 0 3
-# ..........
+# trying to create a random shuffle
 
-
-def randomly_sorting_a_list(enter_your_list):
-    
-    
+"""def randomly_sorting_a_list(enter_your_list):
     b = 0 
     list = [] 
     for i in range(0,len(enter_your_list)):
-        a = np.random.randint(0,len(enter_your_list))   
-        b = a 
-        print(b)  
-        time.sleep(2)
-            
-            
-            
-                 
-    return list 
+        a = np.random.randint(0,len(enter_your_list)) 
+        # a is just a random let assume first ileration is 0 => append this. second ilteration carry the "A" information and let say the ilteration is 0 again this fails the test.  
+        # then thrid ilteratio is a 1 pass then fourth ilteration is 0 does I want this to not be append.
+        for g in range(1 + i, len(enter_your_list)):
+            b = a
+            if a != b:"""     
+# just use the random.shuffle() built in module     
+         
+         
+# using this to practice hirganna  
 
-        
-        
-        
-        
-        
-        
-        
-test = [1,2,3,4,5,6,7]        
-randomly_sorting_a_list(test) 
-        
+
+
+#Hirganna Writing Practice @VOWEL A,I,U,E,O   
     
+#Practice #1 
+practice_01 = ["a", "i", "u","e",'o'] 
+#print('あ','い','う','え','お') < --- answer
+random.shuffle(practice_01)
 
+#print(practice_01)
+
+
+#Practice #2
+practice_02 = ["ka","ki","ku","ke","ko"] 
+#print('か', 'き', 'く', 'け' ,'こ')  #<--- answer
+
+
+random.shuffle(practice_02)
+
+#Let practice practice_01 and practice_02 
+
+practice_01_and_02 = practice_01 + practice_02                                                     
+random.shuffle(practice_01_and_02)
+#print(practice_01_and_02)
+    
 
 
 
@@ -242,9 +249,7 @@ def IQR(list):
 # probablity density function 
 def probablity_density_function(standard_deviation,central_tendency,lower_limit,upper_limit,area =0):
     accumulate_area = 0
-
     while lower_limit < upper_limit:  
-
         dx = 0.00001      
         lower_limit = lower_limit + dx
         first_expression = 1/np.sqrt(2 * math.pi * standard_deviation ** 2)
@@ -253,7 +258,6 @@ def probablity_density_function(standard_deviation,central_tendency,lower_limit,
         height = first_expression * second_expression 
         area = height * dx
         accumulate_area = area + accumulate_area 
-
     return accumulate_area
 
 a = probablity_density_function(1,0,-1,1)

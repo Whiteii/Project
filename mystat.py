@@ -1,11 +1,5 @@
-from cgi import test
-from cgitb import reset
-from cmath import sqrt
-from lib2to3.pytree import convert
-from random import sample
-from re import A, I
+
 from statistics import mean, median, variance
-from tkinter import E
 import numpy as np
 import math
 import random 
@@ -261,7 +255,12 @@ def probablity_density_function(standard_deviation,central_tendency,lower_limit,
     return accumulate_area
 
 a = probablity_density_function(1,0,-1,1)
-#print('area',a)
+#print('area',a) 
+
+
+''' Denote Linear Regressional as OLS'''
+
+def OLS(data): 
         
 
         

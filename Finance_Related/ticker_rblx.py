@@ -21,18 +21,20 @@ for element in a:
 #IN THOUSANDS 
 df = pd.read_csv('RBLX_Balancesheet.csv')
 print(df)
+rblx_total_Asset = df.loc[df['Items'] == 'Total Asset', 'Q3 2022'] 
+rblx_total_Liabilties = df.loc[df['Items'] == 'Total Liabilties', 'Q3 2022'] 
+rblx_total_equity = 22686048086
+long_term_debt = df.loc[df['Items'] == 'Long term debt', 'Q3 2022']
+print('long_term_debt:',long_term_debt)   
+# self-made module for finance. 
+wacc = finance.WACC(rblx_total_equity,rblx_cost_of_debt,rblx_cost_of_equity,rblx_cost_of_debt,tax_rate = 0.02)
+print('wacc:',wacc)
 
 
 
-target_column = df['Q3 2022']
 
 
 
-
-#>------------------------------------------------------------------------------<
- 
-rblx_total_equity = 0 
-rblx_total_debt = 0
 
 Ratings = 'BB'
 US_YEAR_Treasury_Yield = 3.253

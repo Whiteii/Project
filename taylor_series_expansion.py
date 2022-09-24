@@ -1,10 +1,12 @@
-from ast import Num
+
 import sympy as smp 
 import numpy as np 
 import scipy as sp 
 import matplotlib.pyplot as plt 
 from scipy.misc import derivative  
 import math
+
+
 
 
 x = smp.symbols('x', real = True) 
@@ -16,18 +18,19 @@ f = smp.cos(x)
 
 
 
-n = 9 # taking the derivative to N
+n = 15 # taking the derivative to N
 c = 0 # Point To Approximate 
 
-
-
-
-for i in range(0,n + 1 ):
+sums = 0  
+for i in range(0,n + 1 ): 
+    x = smp.symbols('x', real = True) 
     dfn_dxn = smp.diff(f,x,i) 
-    sub = dfn_dxn.subs([(x,2)]) 
-    denom = round(math.factorial(i))
-    coeffient = sub/denom
-    print(coeffient)
+    sub = dfn_dxn.subs([(x,0)]) 
+    denom = 1/math.factorial(i)
+    coeffient = (sub * denom)
+    terms = round((coeffient),20) * (x-0) ** i 
+    print(terms)
+    
         
         
     

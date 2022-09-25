@@ -10,7 +10,7 @@ x = smp.symbols('x', real = True)
 # Enter the function that you want to approximate. 
 # ---> Enter Your Function Like This Then Run The Code <--- 
 def taylor_series_expansion(f):  
-    x = smp.symbols('x', real = True) 
+    #x = smp.symbols('x', real = True) 
     point = int(input("Point To Approximate")) 
     n = int(input("# Of Derivative")) 
     taylor_series = 0  

@@ -6,10 +6,10 @@ from scipy.misc import derivative
 import math 
 
 
+x = smp.symbols('x', real = True) 
 # Enter the function that you want to approximate. 
 # ---> Enter Your Function Like This Then Run The Code <--- 
 def taylor_series_expansion(f):  
-    #x = smp.symbols('x', real = True) 
     point = int(input("Point To Approximate")) 
     n = int(input("# Of Derivative")) 
     taylor_series = 0  
@@ -23,8 +23,11 @@ def taylor_series_expansion(f):
     return taylor_series
         
 expand_cos_x = taylor_series_expansion(smp.cos(x))
-print(expand_cos_x)  
+print(expand_cos_x)   
 
+
+#>--- need these in coeffients in fraction form <---
+#-0.00833333333333333*(x - 5)**5*sin(5) + 0.0416666666666667*(x - 5)**4*cos(5) + 0.166666666666667*(x - 5)**3*sin(5) - 0.5*(x - 5)**2*cos(5) - 1.0*(x - 5)*sin(5) + 1.0*cos(5)
 
 
 

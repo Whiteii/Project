@@ -22,18 +22,12 @@ def taylor_series_expansion(func):
         results = taylor_series + results               
     return results  
 
-
 expand_cos_x = taylor_series_expansion(smp.cos(x))
 pretty_print(expand_cos_x) 
-
-
 
 expand_e_to_the_x = taylor_series_expansion(exp(1)**x)
 pretty_print(expand_e_to_the_x)
  
-
-
-
 
 '''x0 = 0
 n = 10

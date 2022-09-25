@@ -9,7 +9,6 @@ import math
 
 x, c1 , c2 ,c3, c4 = smp.symbols('x c1 c2 c3 c4', real = True) 
 # More visual understanding of taylor series click here ---> https://www.desmos.com/calculator/3xohtl4swp
-
 # Enter the function that you want to approximate. 
 # ---> Enter Your Function Like This Then Run The Code <--- 
 def taylor_series_expansion(func):  
@@ -18,16 +17,24 @@ def taylor_series_expansion(func):
     n = int(input("Nth Degree Polynomial ")) 
     results = 0  
     for i in range(0,n):  
-        taylor_polynomials = diff(func,x,i).subs(x,point) * (x - point) ** i / factorial(i) 
-        results = taylor_polynomials + results               
+        taylor_polynomials = diff(func,x,i).subs(x,point) * (x - point) ** i / factorial(i)
+        print(taylor_polynomials) 
+        results = taylor_polynomials + results  
     return results  
 
-expand_cos_x = taylor_series_expansion(smp.cos(x))
-pretty_print(expand_cos_x) 
+#expand_cos_x = taylor_series_expansion(smp.cos(x),0) 
+#pretty_print(expand_cos_x) 
 
 expand_e_to_the_x = taylor_series_expansion(exp(1)**x)
-pretty_print(expand_e_to_the_x)
- 
+pretty_print(expand_e_to_the_x)  
+
+
+
+from sympy.plotting import plot  
+plot(expand_e_to_the_x, line_color='red')
+
+
+
 #>--- Lagrange Error Bound <---
 
     

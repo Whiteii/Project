@@ -1,4 +1,3 @@
-from genericpath import sameopenfile
 import finance
 import mystat
 import numpy as np

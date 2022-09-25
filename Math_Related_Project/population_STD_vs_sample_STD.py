@@ -49,13 +49,14 @@ for i in range(1,200,1):
     plt.pause(0.10)
     plt.plot(len(list),population_variance_from_sample_data, color = 'red', alpha = .75, marker = 'o', markersize = 5)  
 
+
+
     # sample_variance_from_sample_data
     plt.figure(1)  
     plt.axhline(y = population_variance, c='darkblue',linewidth=2,alpha=0.5) 
     sample_variance_from_sample_data = mystat.calculate_sample_variance(list,accumualted_variance=0)
     print('sample_variance_from_sample_data:',sample_variance_from_sample_data)
     plt.plot(len(list),sample_variance_from_sample_data,color = 'black', alpha = .75,marker = 'o', markersize = 5)
- 
     # look at these data and see how far are they away from the true variance.  
       
       

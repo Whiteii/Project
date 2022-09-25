@@ -1,10 +1,6 @@
-import mystat 
+import mystat
 import math
 import numpy as np 
-
-
-
-
 
 
 # The cost of equity with a pre-determine covariance. 
@@ -19,13 +15,8 @@ def CAPM_BETA1(risk_free_rate,market_return, beta = 1):
     expected_return_of_security = risk_free_rate + beta * (market_return - risk_free_rate) 
     return expected_return_of_security
 
-
-
-
 #three method to calculate for bps = 1/100 
-
 # https://www.researchgate.net/figure/Estimated-default-spreads-by-credit-rating_tbl2_288227112
-
 
 # Risk Free Rate we use is the 10-year bond 
 
@@ -52,10 +43,7 @@ def Debt_Rating_approach(search_for_rating,risk_free_rate):
     return cost_of_debt
 
 
-
-#this can be used for scholastic process and scholastic calculus  
 #adding a risk-free-rate components 
-
 def WACC(Equity,Debt,cost_of_equity,cost_Of_debt,tax_rate):
     capital_structure_of_the_firm = Equity + Debt
     Weighted_Equity = (Equity/capital_structure_of_the_firm) 

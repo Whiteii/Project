@@ -18,6 +18,13 @@ for element in a:
     daily_price_change.append(float(element))
 #>------------------------------------------------------------------------------<
 
+
+Ratings = 'BB'
+US_YEAR_Treasury_Yield = 3.253
+rblx_cost_of_debt = finance.Debt_Rating_approach('BB',3.253)
+rblx_cost_of_equity  = finance.CAPM(US_YEAR_Treasury_Yield,0.11,daily_price_change,11)
+print('rblx_cost_of_equity:',rblx_cost_of_equity)
+
 #IN THOUSANDS 
 df = pd.read_csv('RBLX_Balancesheet.csv')
 print(df)
@@ -29,13 +36,6 @@ print('long_term_debt:',long_term_debt)
 # self-made module for finance. 
 wacc = finance.WACC(rblx_total_equity,rblx_cost_of_debt,rblx_cost_of_equity,rblx_cost_of_debt,tax_rate = 0.02)
 print('wacc:',wacc)
-
-Ratings = 'BB'
-US_YEAR_Treasury_Yield = 3.253
-rblx_cost_of_debt = finance.Debt_Rating_approach('BB',3.253)
-rblx_cost_of_equity  = finance.CAPM(US_YEAR_Treasury_Yield,0.11,daily_price_change,11)
-print(rblx_cost_of_equity)
-
 
 #>------------------------------------------------------------------------------<
 

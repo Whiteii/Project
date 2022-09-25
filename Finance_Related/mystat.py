@@ -20,63 +20,6 @@ def sorting_list(list):
                   list[j] = temp # 5
     return list    
 
-
-
-
-
-
-#randomly sort a list 
-
-
-
-# trying to create a random shuffle
-
-"""def randomly_sorting_a_list(enter_your_list):
-    b = 0 
-    list = [] 
-    for i in range(0,len(enter_your_list)):
-        a = np.random.randint(0,len(enter_your_list)) 
-        # a is just a random let assume first ileration is 0 => append this. second ilteration carry the "A" information and let say the ilteration is 0 again this fails the test.  
-        # then thrid ilteratio is a 1 pass then fourth ilteration is 0 does I want this to not be append.
-        for g in range(1 + i, len(enter_your_list)):
-            b = a
-            if a != b:"""     
-# just use the random.shuffle() built in module     
-         
-         
-# using this to practice hirganna  
-
-
-
-#Hirganna Writing Practice @VOWEL A,I,U,E,O   
-    
-#Practice #1 
-practice_01 = ["a", "i", "u","e",'o'] 
-#print('あ','い','う','え','お') < --- answer
-random.shuffle(practice_01)
-
-#print(practice_01)
-
-
-#Practice #2
-practice_02 = ["ka","ki","ku","ke","ko"] 
-#print('か', 'き', 'く', 'け' ,'こ')  #<--- answer
-
-
-random.shuffle(practice_02)
-
-#Let practice practice_01 and practice_02 
-
-practice_01_and_02 = practice_01 + practice_02                                                     
-random.shuffle(practice_01_and_02)
-#print(practice_01_and_02)
-    
-
-
-
-
-
-
         
 #calculate median
 def find_median(list): 

@@ -6,7 +6,6 @@ import statistics
 import matplotlib.pyplot as plt
 from scipy.stats import norm 
 
-
 #>>>>> this is a draft <<<<<< 
 
 
@@ -33,7 +32,7 @@ from scipy.stats import norm
 ################################################################################################################################################################################
 # Converting string of list into float of list using note files 
 
-note_files = open('%price_change.txt','r')
+note_files = open('%price_change.txt','r') #Drag TXT Outside The Finance CSV Folder
 x = note_files.read()
 b = x.split('\n')
 a = b

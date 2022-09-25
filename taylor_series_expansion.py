@@ -6,7 +6,6 @@ from scipy.misc import derivative
 import math 
 
 
-x = smp.symbols('x', real = True) 
 # Enter the function that you want to approximate. 
 # ---> Enter Your Function Like This Then Run The Code <--- 
 def taylor_series_expansion(f):  

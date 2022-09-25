@@ -30,12 +30,6 @@ print('long_term_debt:',long_term_debt)
 wacc = finance.WACC(rblx_total_equity,rblx_cost_of_debt,rblx_cost_of_equity,rblx_cost_of_debt,tax_rate = 0.02)
 print('wacc:',wacc)
 
-
-
-
-
-
-
 Ratings = 'BB'
 US_YEAR_Treasury_Yield = 3.253
 rblx_cost_of_debt = finance.Debt_Rating_approach('BB',3.253)

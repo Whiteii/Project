@@ -1,11 +1,5 @@
-from cgi import test
-from cgitb import reset
-from cmath import sqrt
-from lib2to3.pytree import convert
 from random import sample
-from re import A, I
 from statistics import mean, median, variance
-from tkinter import E
 import numpy as np
 import math
 import random 

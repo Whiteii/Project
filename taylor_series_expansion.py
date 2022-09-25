@@ -10,26 +10,30 @@ import math
 
 
 x = smp.symbols('x', real = True) 
-t = smp.symbols('t', real = True)
+
 
 # Enter the function that you want to approximate. 
 # ---> Enter Your Function Like This Then Run The Code <--- 
-f = smp.cos(x)  
 
 
 
-n = 15 # taking the derivative to N
-c = 0 # Point To Approximate 
+
+#n # taking the derivative to N
+#c # Point To Approximate 
 
 sums = 0  
-for i in range(0,n + 1 ): 
-    x = smp.symbols('x', real = True) 
-    dfn_dxn = smp.diff(f,x,i) 
-    sub = dfn_dxn.subs([(x,0)]) 
-    denom = 1/math.factorial(i)
-    coeffient = (sub * denom)
-    terms = round((coeffient),20) * (x-0) ** i 
-    print(terms)
+def taylor_series_expansion(x = smp.symbols('x', real = True),f =  smp.sin(x),n = int(input("# Of Derivative"))):
+    for i in range(0,n + 1 ): 
+        x = smp.symbols('x', real = True) 
+        dfn_dxn = smp.diff(f,x,i) 
+        sub = dfn_dxn.subs([(x,2)]) 
+        denom = 1/math.factorial(i)
+        coeffient = (sub * denom)
+        terms = (coeffient) * (x-2) ** i 
+        print(terms)
+        
+        
+taylor_series_expansion()
     
         
         

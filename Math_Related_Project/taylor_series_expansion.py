@@ -6,6 +6,8 @@ from scipy.misc import derivative
 import math 
 
 
+
+
 x = smp.symbols('x', real = True) 
 # More visual understanding of taylor series click here ---> https://www.desmos.com/calculator/3xohtl4swp
 

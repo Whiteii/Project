@@ -19,7 +19,7 @@ def taylor_series_expansion(f_x):
     n = int(input("# Of Derivative")) 
     taylor_series = 0  
     for i in range(0,n + 1 ):  
-        dfn_dxn = smp.diff(f,x,i) 
+        dfn_dxn = smp.diff(f_x,x,i) 
         sub = dfn_dxn.subs([(x,point)]) 
         denom = 1/math.factorial(i)
         coeffient = (sub * denom)                       

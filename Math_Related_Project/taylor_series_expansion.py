@@ -23,19 +23,20 @@ def taylor_series_expansion(func):
         taylor_polynomials = diff(func,x,i).subs(x,point) * (x - point) ** i / factorial(i)
         print(taylor_polynomials) 
         results = taylor_polynomials + results
-        #p1 = plot(results, line_color = 'red')   
+        graph = plot(smp.cos(x),results,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')   
             
     return results  
 
 #expand_cos_x = taylor_series_expansion(smp.cos(x),0) 
 #pretty_print(expand_cos_x) 
 
-expand_e_to_the_x = taylor_series_expansion(exp(1)**x)
-pretty_print(expand_e_to_the_x)  
+expand_cos = taylor_series_expansion(smp.cos(x))
+pretty_print(expand_cos)  
 
-#p1 = plot(expand_e_to_the_x, line_color = 'red') 
-#p2 = plot(exp(1)**x,line_color = 'blue') 
-#p1.extend(p2)
+#p1 = plot(expand_e_to_the_x) 
+
+#graph= plot(smp.cos(x),expand_cos,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
+
 
 plot.show()
 

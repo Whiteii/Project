@@ -8,7 +8,6 @@ import math
 from sympy.plotting import plot  
 
 
-
 x, c1 , c2 ,c3, c4 = smp.symbols('x c1 c2 c3 c4', real = True) 
 # More visual understanding of taylor series click here ---> https://www.desmos.com/calculator/3xohtl4swp
 # Enter the function that you want to approximate. 
@@ -28,13 +27,12 @@ def taylor_series_expansion(func):
 
 #expand_cos_x = taylor_series_expansion(smp.cos(x),0) 
 #pretty_print(expand_cos_x) 
-
-expand_cos = taylor_series_expansion(smp.cos(x))
-pretty_print(expand_cos)  
-
+func = smp.exp(1)**x
+target_a_function = taylor_series_expansion(func)
+pretty_print(target_a_function)  
 #p1 = plot(expand_e_to_the_x) 
 
-graph= plot(smp.cos(x),expand_cos,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
+graph= plot(func,target_a_function,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
 plot.show()
 
 

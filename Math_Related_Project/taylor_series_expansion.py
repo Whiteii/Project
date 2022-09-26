@@ -18,12 +18,11 @@ def taylor_series_expansion(func):
     point = int(input("Point To Approximate")) 
     n = int(input("Nth Degree Polynomial ")) 
     results = 0  
-
     for i in range(0,n):  
         taylor_polynomials = diff(func,x,i).subs(x,point) * (x - point) ** i / factorial(i)
         print(taylor_polynomials) 
         results = taylor_polynomials + results
-        graph = plot(smp.cos(x),results,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')   
+        #graph = plot(smp.cos(x),results,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')   
             
     return results  
 
@@ -35,9 +34,7 @@ pretty_print(expand_cos)
 
 #p1 = plot(expand_e_to_the_x) 
 
-#graph= plot(smp.cos(x),expand_cos,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
-
-
+graph= plot(smp.cos(x),expand_cos,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
 plot.show()
 
 

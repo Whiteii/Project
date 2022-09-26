@@ -31,13 +31,12 @@ func = smp.exp(1)**x
 target_a_function = taylor_series_expansion(func)
 pretty_print(target_a_function)  
 #p1 = plot(expand_e_to_the_x) 
-
 graph= plot(func,target_a_function,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
 plot.show()
 
-
-
-#>--- Lagrange Error Bound <---
+#>--- Lagrange Error Bound Derivation <--- 
+#https://www.khanacademy.org/math/ap-calculus-bc/bc-series-new/bc-10-12/v/error-or-remainder-of-a-taylor-polynomial-approximation
+#https://www.khanacademy.org/math/ap-calculus-bc/bc-series-new/bc-10-12/v/proof-bounding-the-error-or-remainder-of-a-taylor-polynomial-approximation
 
     
         

@@ -12,7 +12,7 @@ import pandas as pd
 note_files = open('%price_change.txt','r')
 x = note_files.read()
 b = x.split('\n')
-a = b
+a = b 
 daily_price_change = []
 for element in a:
     daily_price_change.append(float(element))
@@ -41,7 +41,8 @@ print('wacc:',wacc)
 
 dff = pd.read_csv('%_change_ticker.csv')
 print(dff)
-population_variance = dff['%change'].var()
+population_variance = dff['%change'].var() 
+print('variance',population_variance)
 std = np.sqrt(population_variance)  
 print('std:',std) 
 stat = dff.describe()

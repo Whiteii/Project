@@ -181,7 +181,7 @@ def IQR(list):
 
 # work in progress
 # probablity density function 
-def probablity_density_function(standard_deviation,central_tendency,lower_limit,upper_limit,area =0):
+def probablity_density_function(standard_deviation,central_tendency,lower_limit,upper_limit,area = 0):
     accumulate_area = 0
     while lower_limit < upper_limit:  
         dx = 0.00001      

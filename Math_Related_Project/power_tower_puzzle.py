@@ -4,15 +4,13 @@ import numpy
 
 #This program is inspire by 3blue1blue 
 #>---- https://www.youtube.com/watch?v=elQVZLLiod4&t=1482s ----< 
-
-
-
 # tetration 
-
 #     ^2  
 #   ^2
 # ^2
 #2^
+
+
 
 #Answer is should 65,536 with 4 ilteration.  
 results = 0 

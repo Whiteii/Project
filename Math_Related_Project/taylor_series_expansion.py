@@ -22,7 +22,7 @@ def taylor_series_expansion(func):
         print(taylor_polynomials) 
         results = taylor_polynomials + results
         #graph = plot(smp.cos(x),results,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')   
-            
+        
     return results  
 
 #expand_cos_x = taylor_series_expansion(smp.cos(x),0) 
@@ -31,7 +31,7 @@ func = smp.exp(1)**x
 target_a_function = taylor_series_expansion(func)
 pretty_print(target_a_function)  
 #p1 = plot(expand_e_to_the_x) 
-graph= plot(func,target_a_function,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
+graph = plot(func,target_a_function,(x,-5,5), title="Taylor Series ", legend= True, xlabel='x', ylabel='f(x)')
 plot.show()
 
 #>--- Lagrange Error Bound Derivation <--- 

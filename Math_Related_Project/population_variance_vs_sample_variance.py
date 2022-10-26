@@ -45,7 +45,7 @@ for i in range(1,200,1):
     # using population variance formula to calculate 
     plt.figure(1)
     
-    
+    #LIANG 
     
     #population_variance_from_sample_data
     population_variance_from_sample_data = mystat.calculate_population_variance(list,accumualted_variance = 0)  

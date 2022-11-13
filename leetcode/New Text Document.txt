@@ -1,0 +1,215 @@
+Leetcode 595. Big Countries 
+
+Input: 
+World table:
++-------------+-----------+---------+------------+--------------+
+| name        | continent | area    | population | gdp          |
++-------------+-----------+---------+------------+--------------+
+| Afghanistan | Asia      | 652230  | 25500100   | 20343000000  |
+| Albania     | Europe    | 28748   | 2831741    | 12960000000  |
+| Algeria     | Africa    | 2381741 | 37100000   | 188681000000 |
+| Andorra     | Europe    | 468     | 78115      | 3712000000   |
+| Angola      | Africa    | 1246700 | 20609294   | 100990000000 |
++-------------+-----------+---------+------------+--------------+
+Output: 
++-------------+------------+---------+
+| name        | population | area    |
++-------------+------------+---------+
+| Afghanistan | 25500100   | 652230  |
+| Algeria     | 37100000   | 2381741 |
++-------------+------------+---------+
+
+
+Solution: #Write your MySQL query statement below
+SELECT name, population, area 
+FROM World 
+WHERE (area >= 3000000 or population >= 25000000); 
+
+
+
+_________________________________________________________________________________ 
+
+1757. Recyclable and Low Fat Products
+
+Input: 
+Products table:
++-------------+----------+------------+
+| product_id  | low_fats | recyclable |
++-------------+----------+------------+
+| 0           | Y        | N          |
+| 1           | Y        | Y          |
+| 2           | N        | Y          |
+| 3           | Y        | Y          |
+| 4           | N        | N          |
++-------------+----------+------------+
+Output: 
++-------------+
+| product_id  |
++-------------+
+| 1           |
+| 3           |
++-------------+
+Explanation: Only products 1 and 3 are both low fat and recyclable. 
+
+
+
+Solution: #Write your MySQL query statement below
+SELECT product_id
+FROM Products 
+WHERE (low_fats like 'Y' and recyclable like 'Y');
+
+_________________________________________________________________________________ 
+
+
+584. Find Customer Referee
+
+Input: 
+Customer table:
++----+------+------------+
+| id | name | referee_id |
++----+------+------------+
+| 1  | Will | null       |
+| 2  | Jane | null       |
+| 3  | Alex | 2          |
+| 4  | Bill | null       |
+| 5  | Zack | 1          |
+| 6  | Mark | 2          |
++----+------+------------+
+Output: 
++------+
+| name |
++------+
+| Will |
+| Jane |
+| Bill |
+| Zack | 
++------+  
+
+Solution: 
+# Write your MySQL query statement below
+SELECT name 
+FROM customer 
+WHERE referee_id IS NULL OR referee_id <> 2;  
+
+_________________________________________________________________________________ 
+
+183. Customers Who Never Order 
+Input: 
+Customers table:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+Orders table:
++----+------------+
+| id | customerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+Output: 
++-----------+
+| Customers |
++-----------+
+| Henry     |
+| Max       |  
++-----------+ 
+
+
+
+# Write your MySQL query statement below
+
+
+#Write an SQL query to report all customers who never order anything.
+
+SELECT name as Customers 
+FROM Customers
+WHERE id NOT IN(SELECT customerId FROM Orders) 
+
+_________________________________________________________________________________ 
+
+1873. Calculate Special Bonus 
+
+Input: 
+Employees table:
++-------------+---------+--------+
+| employee_id | name    | salary |
++-------------+---------+--------+
+| 2           | Meir    | 3000   |
+| 3           | Michael | 3800   |
+| 7           | Addilyn | 7400   |
+| 8           | Juan    | 6100   |
+| 9           | Kannon  | 7700   |
++-------------+---------+--------+
+Output: 
++-------------+-------+
+| employee_id | bonus |
++-------------+-------+
+| 2           | 0     |
+| 3           | 0     |
+| 7           | 7400  |
+| 8           | 0     |
+| 9           | 7700  |
++-------------+-------+ 
+
+
+# Write your MySQL query statement below
+select employee_id, (if(employee_id % 2 != 0 and name not like 'M%', salary, 0)) as bonus
+    from Employees
+    order by employee_id;
+_________________________________________________________________________________  
+
+
+Input: 
+Salary table:
++----+------+-----+--------+
+| id | name | sex | salary |
++----+------+-----+--------+
+| 1  | A    | m   | 2500   |
+| 2  | B    | f   | 1500   |
+| 3  | C    | m   | 5500   |
+| 4  | D    | f   | 500    |
++----+------+-----+--------+
+Output: 
++----+------+-----+--------+
+| id | name | sex | salary |
++----+------+-----+--------+
+| 1  | A    | f   | 2500   |
+| 2  | B    | m   | 1500   |
+| 3  | C    | f   | 5500   |
+| 4  | D    | m   | 500    |
++----+------+-----+--------+
+Explanation: 
+(1, A) and (3, C) were changed from 'm' to 'f'.
+(2, B) and (4, D) were changed from 'f' to 'm'   
+
+
+
+Solution :
+ # Write your MySQL query statement below
+UPDATE Salary 
+set sex = if(sex = 'm', 'f', 'm');  
+
+_________________________________________________________________________________  
+
+Table: Salary
+
++-------------+----------+
+| Column Name | Type     |
++-------------+----------+
+| id          | int      |
+| name        | varchar  |
+| sex         | ENUM     |
+| salary      | int      |
++-------------+----------+
+id is the primary key for this table.
+The sex column is ENUM value of type ('m', 'f').
+The table contains information about an employee.  
+
+
+
+

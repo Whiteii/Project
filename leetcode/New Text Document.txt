@@ -243,9 +243,7 @@ Output:
 | 2  |
 | 4  |
 +----+  
-
-
-_________________________________________________________________________________   
+______________________________________________________________________________   
 
 Solution: 
 SELECT A.id
@@ -253,4 +251,33 @@ FROM
     Weather A  
         JOIN 
     Weather B ON DATEDIFF(A.recordDate, B.recordDate) = 1
-     AND A.Temperature > B.Temperature;
+     AND A.Temperature > B.Temperature; 
+______________________________________________________________________________  
+182. Duplicate Emails 
+
+Person table:
++----+---------+
+| id | email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+Output: 
++---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+Explanation: a@b.com is repeated two times. 
+
+
+Solution: 
+
+
+select Email
+from Person
+group by Email
+having count(Email) > 1;
+
+   

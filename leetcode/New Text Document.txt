@@ -324,8 +324,6 @@ ______________________________________________________________________________
 
 181. Employees Earning More Than Their Managers
 
-
-
 Employee table:
 +----+-------+--------+-----------+
 | id | name  | salary | managerId |

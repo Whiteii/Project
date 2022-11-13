@@ -164,6 +164,10 @@ select employee_id, (if(employee_id % 2 != 0 and name not like 'M%', salary, 0))
 _________________________________________________________________________________  
 
 
+627. Swap Salary
+
+
+
 Input: 
 Salary table:
 +----+------+-----+--------+
@@ -196,20 +200,57 @@ set sex = if(sex = 'm', 'f', 'm');
 
 _________________________________________________________________________________  
 
-Table: Salary
+196. Delete Duplicate Emails 
 
-+-------------+----------+
-| Column Name | Type     |
-+-------------+----------+
-| id          | int      |
-| name        | varchar  |
-| sex         | ENUM     |
-| salary      | int      |
-+-------------+----------+
-id is the primary key for this table.
-The sex column is ENUM value of type ('m', 'f').
-The table contains information about an employee.  
+Input: 
+Person table:
++----+------------------+
+| id | email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
+| 3  | john@example.com |
++----+------------------+
+Output: 
++----+------------------+
+| id | email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
++----+------------------+
+Explanation: john@example.com is repeated two times. We keep the row with the smallest Id = 1. 
+
+solution: DELETE p1 FROM Person p1,
+    Person p2
+WHERE
+    p1.Email = p2.Email AND p1.Id > p2.Id 
+
+_________________________________________________________________________________   
+
+Weather table:
++----+------------+-------------+
+| id | recordDate | temperature |
++----+------------+-------------+
+| 1  | 2015-01-01 | 10          |
+| 2  | 2015-01-02 | 25          |
+| 3  | 2015-01-03 | 20          |
+| 4  | 2015-01-04 | 30          |
++----+------------+-------------+
+Output: 
++----+
+| id |
++----+
+| 2  |
+| 4  |
++----+  
 
 
+_________________________________________________________________________________   
 
-
+Solution: 
+SELECT A.id
+FROM 
+    Weather A  
+        JOIN 
+    Weather B ON DATEDIFF(A.recordDate, B.recordDate) = 1
+     AND A.Temperature > B.Temperature;

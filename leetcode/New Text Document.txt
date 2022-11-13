@@ -316,6 +316,38 @@ addressId = 1 contains information about the address of personId = 2.
 Solution :  
 select Firstname, LastName, City, State
 From Person P
-left join Address A on p.PersonID = a.PersonID; 
+left join Address A on p.PersonID = a.PersonID;  
+
+
+
+______________________________________________________________________________  
+
+181. Employees Earning More Than Their Managers
+
+
+
+Employee table:
++----+-------+--------+-----------+
+| id | name  | salary | managerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | Null      |
+| 4  | Max   | 90000  | Null      |
++----+-------+--------+-----------+
+Output: 
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+
+Solution : 
+
+SELECT e1.name as employee   
+
+FROM Employee e1 
+    Inner Join 
+     Employee e2 on (e1.managerID = e2.ID) and (e1.salary > e2.salary);  
 
    

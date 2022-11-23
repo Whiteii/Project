@@ -54,4 +54,6 @@ plt.ylabel('Price (in 1000s of dollars)')
 # Set the x-axis label
 plt.xlabel('Size (1000 sqft)')
 plt.legend()
-plt.show()
+plt.show() 
+
+#Going to add more to this 

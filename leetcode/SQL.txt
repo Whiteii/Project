@@ -243,9 +243,7 @@ Output:
 | 2  |
 | 4  |
 +----+  
-
-
-_________________________________________________________________________________   
+______________________________________________________________________________   
 
 Solution: 
 SELECT A.id
@@ -253,4 +251,178 @@ FROM
     Weather A  
         JOIN 
     Weather B ON DATEDIFF(A.recordDate, B.recordDate) = 1
-     AND A.Temperature > B.Temperature;
+     AND A.Temperature > B.Temperature; 
+______________________________________________________________________________  
+182. Duplicate Emails 
+
+Person table:
++----+---------+
+| id | email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+Output: 
++---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+Explanation: a@b.com is repeated two times. 
+
+
+Solution: 
+
+
+select Email
+from Person
+group by Email
+having count(Email) > 1; 
+
+______________________________________________________________________________
+
+175. Combine Two Tables
+
+Example 1:
+
+Input: 
+Person table:
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+| 1        | Wang     | Allen     |
+| 2        | Alice    | Bob       |
++----------+----------+-----------+
+Address table:
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+| 1         | 2        | New York City | New York   |
+| 2         | 3        | Leetcode      | California |
++-----------+----------+---------------+------------+
+Output: 
++-----------+----------+---------------+----------+
+| firstName | lastName | city          | state    |
++-----------+----------+---------------+----------+
+| Allen     | Wang     | Null          | Null     |
+| Bob       | Alice    | New York City | New York |
++-----------+----------+---------------+----------+
+Explanation: 
+There is no address in the address table for the personId = 1 so we return null in their city and state.
+addressId = 1 contains information about the address of personId = 2. 
+
+
+Solution :  
+select Firstname, LastName, City, State
+From Person P
+left join Address A on p.PersonID = a.PersonID;  
+
+
+
+______________________________________________________________________________  
+
+181. Employees Earning More Than Their Managers
+
+Employee table:
++----+-------+--------+-----------+
+| id | name  | salary | managerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | Null      |
+| 4  | Max   | 90000  | Null      |
++----+-------+--------+-----------+
+Output: 
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+
+Solution : 
+
+SELECT e1.name as employee   
+
+FROM Employee e1 
+    Inner Join 
+     Employee e2 on (e1.managerID = e2.ID) and (e1.salary > e2.salary);  
+
+  ______________________________________________________________________________________  
+  
+  
+512. Game Play Analysis II
+  
+  Input: 
+Activity table:
++-----------+-----------+------------+--------------+
+| player_id | device_id | event_date | games_played |
++-----------+-----------+------------+--------------+
+| 1         | 2         | 2016-03-01 | 5            |
+| 1         | 2         | 2016-05-02 | 6            |
+| 2         | 3         | 2017-06-25 | 1            |
+| 3         | 1         | 2016-03-02 | 0            |
+| 3         | 4         | 2018-07-03 | 5            |
++-----------+-----------+------------+--------------+
+Output: 
++-----------+-----------+
+| player_id | device_id |
++-----------+-----------+
+| 1         | 2         |
+| 2         | 3         |
+| 3         | 1         |
++-----------+-----------+ 
+
+
+Solution 
+
+SELECT A1.player_id, 
+       A1.device_id
+    
+FROM 
+  Activity A1
+
+
+WHERE 
+   (A1.player_id, A1.event_date) IN ( 
+     SELECT 
+       A2.player_id, 
+       MIN(A2.event_date)  
+    FROM 
+        Activity A2 
+    GROUP BY 
+        A2.player_id
+   ); 
+  ____________________________________________________________________ 
+   
+
+511. Game Play Analysis I
+  
+  Example 1:
+
+Input: 
+Activity table:
++-----------+-----------+------------+--------------+
+| player_id | device_id | event_date | games_played |
++-----------+-----------+------------+--------------+
+| 1         | 2         | 2016-03-01 | 5            |
+| 1         | 2         | 2016-05-02 | 6            |
+| 2         | 3         | 2017-06-25 | 1            |
+| 3         | 1         | 2016-03-02 | 0            |
+| 3         | 4         | 2018-07-03 | 5            |
++-----------+-----------+------------+--------------+
+Output: 
++-----------+-----------+
+| player_id | device_id |
++-----------+-----------+
+| 1         | 2         |
+| 2         | 3         |
+| 3         | 1         |
++-----------+-----------+ 
+
+Solution # Write your MySQL query statement below
+Select player_id, min(event_date) as first_login 
+FROM Activity 
+GROUP BY player_id; 
+
+    

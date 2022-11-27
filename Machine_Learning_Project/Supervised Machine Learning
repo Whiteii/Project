@@ -3,25 +3,39 @@ import matplotlib.pyplot as plt
 
 
 
-# let make a data table containing column size(1000 sqft), Price(1000s of dollars) 
 
-x_train = np.array([1, 2,3]) #<--- our training length is 3 for our example 
-y_train = np.array([300, 500,800])  
-#print(f"x_train = {x_train}")
-#print(f"y_train = {y_train}")
 
+
+
+
+ 
+def compute_model_output(x,y, w, b):
+    """
+    Computes the prediction of a linear model
+    Args:
+      x (ndarray (m,)): Data, m examples 
+      w,b (scalar)    : model parameters  
+    Returns
+      y (ndarray (m,)): target values
+    """
+    m = len(x)
+    f_wb = 0
+    cost = 0
+
+    for i in range(m):
+        f_wb = w * x[i] + b 
+        cost = cost + (f_wb - y[i])**2
+    total_cost = 1/(2*m) * cost
+    return total_cost
 
 # compute gradient 
-
 def compute_gradient(x,y,w,b): 
   """
   x : Data, m examples 
   y : target value 
   w,b : parameter
-
   """
   m = len(x)
-  print(m)
   dj_dw = 0 
   dj_db = 0 
   
@@ -40,7 +54,44 @@ def compute_gradient(x,y,w,b):
   return dj_dw, dj_db 
 
 
-a = compute_gradient(x_train,y_train,0,0)
-print(a[0])
+##a = compute_gradient(x_train,y_train,0,0)
+
+def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function):
+  J_history = []
+  P_history = []
+  
+  for i in range(num_iters): 
+      dj_dw, dj_db = gradient_function(x,y,w,b)  
+      w = w - alpha * dj_dw
+      b = b - alpha * dj_db
+      if i < 100000: 
+        J_history.append(cost_function(x,y,w,b))
+        P_history.append([w,b])
+        print(J_history)
+        
+  return w,b,J_history,P_history  
+
+
+
+x_train = np.array([1, 2,3])  
+y_train = np.array([300, 500,800])  
+
+w_init = 0
+b_init = 0
+# some gradient descent settings
+iterations = 10000
+tmp_alpha = 0.001
+# run gradient descent
+w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations, compute_model_output, compute_gradient) 
+    
+    
+    
         
   
+fig, (ax1, ax2) = plt.subplots(1, 2, constrained_layout=True, figsize=(12,4))
+ax1.plot(J_hist[:100])
+ax2.plot(1000 + np.arange(len(J_hist[1000:])), J_hist[1000:])
+ax1.set_title("Cost vs. iteration(start)");  ax2.set_title("Cost vs. iteration (end)")
+ax1.set_ylabel('Cost')            ;  ax2.set_ylabel('Cost') 
+ax1.set_xlabel('iteration step')  ;  ax2.set_xlabel('iteration step') 
+plt.show()

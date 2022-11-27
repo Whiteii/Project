@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 x_train = np.array([1, 2,3]) #<--- our training length is 3 for our example 
 y_train = np.array([300, 500,800])  
-print(f"x_train = {x_train}")
-print(f"y_train = {y_train}")
+#print(f"x_train = {x_train}")
+#print(f"y_train = {y_train}")
 
 
 # compute gradient 
@@ -28,17 +28,19 @@ def compute_gradient(x,y,w,b):
   for i in range(m): 
     f_wb = w * x[i] + b
     dj_dw_i = (f_wb - y[i]) * x[i]
-    print(dj_dw_i)
+    #print(dj_dw_i)
     dj_db_i = (f_wb - y[i])
     dj_dw += dj_dw_i
     dj_db += dj_db_i
     
   dj_dw = dj_dw / m 
-  print(dj_dw)
-  dj_db = dj_db / m
+  #print(dj_dw)
+  dj_db = dj_db / m 
+  #print(dj_db)
   return dj_dw, dj_db 
 
 
-compute_gradient(x_train,y_train,0,0)
+a = compute_gradient(x_train,y_train,0,0)
+print(a[0])
         
   

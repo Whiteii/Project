@@ -78,7 +78,7 @@ w_init = 0
 b_init = 0
 iterations = 100000
 tmp_alpha = 0.01
-w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations, compute_model_output, compute_gradient,linear_regression) 
+w_final, b_final, j_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations, compute_model_output, compute_gradient,linear_regression) 
 
 
 

@@ -2,7 +2,6 @@ import numpy as  np
 import matplotlib.pyplot as plt  
 
 def compute_model_output(x,y, w, b):
-   
     m = len(x)
     f_wb = 0
     cost = 0
@@ -73,12 +72,12 @@ def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,reg
   return w,b,J_history,P_history  
 
 x_train = np.array([1, 2,3,4,5,6,7,8,9,10,11,12,13])  
-y_train = np.array([-300, -500,-800,-300,-500,-1000,-2000,-20,-50,-600,-800,-900,-1200])  
+y_train = np.array([-300, -400,-500,-600,-700,-800,-900,-1000,-1200,-1300,-1400,-1500,-1700])  
 
 w_init = 0
 b_init = 0
 iterations = 100000
-tmp_alpha = 0.001
+tmp_alpha = 0.01
 w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations, compute_model_output, compute_gradient,linear_regression) 
 
 

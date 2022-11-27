@@ -11,47 +11,34 @@ print(f"x_train = {x_train}")
 print(f"y_train = {y_train}")
 
 
-m = len(x_train)
-i = 0 
-x_i = x_train[i] 
-y_i = y_train[i]
-print(x_i,y_i)
+# compute gradient 
+
+def compute_gradient(x,y,w,b): 
+  """
+  x : Data, m examples 
+  y : target value 
+  w,b : parameter
+
+  """
+  m = len(x)
+  print(m)
+  dj_dw = 0 
+  dj_db = 0 
+  
+  for i in range(m): 
+    f_wb = w * x[i] + b
+    dj_dw_i = (f_wb - y[i]) * x[i]
+    print(dj_dw_i)
+    dj_db_i = (f_wb - y[i])
+    dj_dw += dj_dw_i
+    dj_db += dj_db_i
+    
+  dj_dw = dj_dw / m 
+  print(dj_dw)
+  dj_db = dj_db / m
+  return dj_dw, dj_db 
 
 
-
-
-def compute_model_output(x, w, b):
-    """
-    Computes the prediction of a linear model
-    Args:
-      x (ndarray (m,)): Data, m examples 
-      w,b (scalar)    : model parameters  
-    Returns
-      y (ndarray (m,)): target values
-    """
-    m = x.shape[0]
-    f_wb = np.zeros(m)
-
-    for i in range(m):
-        f_wb[i] = w * x[i] + b 
-        print(x[i])  
-        #print(f_wb[i])
-    return f_wb 
-
-w = 0
-b = 0 
-
-tmp_f_wb = compute_model_output(x_train, w, b,)
-
-# Plot our model prediction
-plt.plot(x_train, tmp_f_wb, c='b',label='Our Prediction')
-# Plot the data points
-plt.scatter(x_train, y_train, marker='x', c='r',label='Actual Values')
-# Set the title
-plt.title("Housing Prices")
-# Set the y-axis label
-plt.ylabel('Price (in 1000s of dollars)')
-# Set the x-axis label
-plt.xlabel('Size (1000 sqft)')
-plt.legend()
-plt.show()
+compute_gradient(x_train,y_train,0,0)
+        
+  

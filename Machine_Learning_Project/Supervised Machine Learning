@@ -1,3 +1,7 @@
+# The goal of this project is to get familiar with data cleaning and data exploration
+# Then implented ML Algo 
+
+
 import numpy as  np 
 import matplotlib.pyplot as plt  
 

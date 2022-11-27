@@ -2,14 +2,7 @@ import numpy as  np
 import matplotlib.pyplot as plt  
 
 def compute_model_output(x,y, w, b):
-    """
-    Computes the prediction of a linear model
-    Args:
-      x (ndarray (m,)): Data, m examples 
-      w,b (scalar)    : model parameters  
-    Returns
-      y (ndarray (m,)): target values
-    """
+   
     m = len(x)
     f_wb = 0
     cost = 0
@@ -20,7 +13,6 @@ def compute_model_output(x,y, w, b):
     total_cost = 1/(2*m) * cost
     return total_cost
 
-# compute gradient 
 def compute_gradient(x,y,w,b): 
   """
   x : Data, m examples 
@@ -45,16 +37,9 @@ def compute_gradient(x,y,w,b):
   #print(dj_db)
   return dj_dw, dj_db 
 
-
+# For visualization 
 def linear_regression(x, w, b):
-    """
-    Computes the prediction of a linear model
-    Args:
-      x (ndarray (m,)): Data, m examples 
-      w,b (scalar)    : model parameters  
-    Returns
-      y (ndarray (m,)): target values
-    """
+    
     m = len(x)
     f_wb = np.zeros(m)
     for i in range(m):
@@ -62,32 +47,22 @@ def linear_regression(x, w, b):
     #print(f_wb)
     return f_wb
 
-    
-
-
-
-
-
-
-
-##a = compute_gradient(x_train,y_train,0,0)
-
 def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,regression):
   J_history = []
   P_history = []
   a = regression(x,w,b)
-  
   for i in range(num_iters): 
       dj_dw, dj_db = gradient_function(x,y,w,b)  
       w = w - alpha * dj_dw
       b = b - alpha * dj_db
+      tmp_f_wb = regression(x,w,b)
       
-      tmp_f_wb = regression(x,w,b)  
+      
       if i < 100000: 
         J_history.append(cost_function(x,y,w,b))
         P_history.append([w,b])
         #print(J_history)  
-        
+  print(tmp_f_wb)        
   plt.plot(x_train, tmp_f_wb, c='b',label='Our Prediction') 
   plt.scatter(x_train, y_train, marker='x', c='r',label='Actual Values')
   plt.title("Housing Prices")
@@ -97,14 +72,12 @@ def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,reg
   plt.show()     
   return w,b,J_history,P_history  
 
-
-
 x_train = np.array([1, 2,3,4,5,6,7,8,9,10,11,12,13])  
-y_train = np.array([300, 500,800,300,50,1000,2000,20,50,600,800,900,1200])  
+y_train = np.array([-300, -500,-800,-300,-500,-1000,-2000,-20,-50,-600,-800,-900,-1200])  
 
 w_init = 0
 b_init = 0
-iterations = 10000
+iterations = 100000
 tmp_alpha = 0.001
 w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations, compute_model_output, compute_gradient,linear_regression) 
 

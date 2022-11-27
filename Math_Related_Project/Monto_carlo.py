@@ -60,20 +60,17 @@ for i in range(number_of_simulation):
             plt.scatter(inside_x_position,inside_y_position, c= 'Yellow' , s=50, label='Drop inside' ) 
             isFirst1 = False 
             plt.legend(loc=(0.75, 0.9))
-        else: 
-           
+        else:     
            plt.scatter(inside_x_position,inside_y_position, c='Yellow' , s=50, label='Drop inside') 
            #print(inside_x_position)
                   
   
         plt.figure(1)
-        if isFirst2:
-             
+        if isFirst2: 
             plt.scatter(outside_x_position,outside_y_position, c='Black' ,s=50,label='Drop outside')
             isFirst2 = False
             plt.legend(loc=(0.75, 0.9))
         else:
-           
            plt.scatter(outside_x_position,outside_y_position, c='Black' ,s=50, label='Drop outside') 
            plt.figure(1) 
            plt.draw()

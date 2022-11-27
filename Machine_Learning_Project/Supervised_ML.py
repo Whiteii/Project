@@ -11,7 +11,7 @@ def compute_model_output(x,y, w, b):
         f_wb = w * x[i] + b 
         cost = cost + (f_wb - y[i])**2
     total_cost = 1/(2*m) * cost
-    return total_cost
+    return total_cost, f_wb
 
 def compute_gradient(x,y,w,b): 
   """
@@ -50,7 +50,6 @@ def linear_regression(x, w, b):
 def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,regression):
   J_history = []
   P_history = []
-  a = regression(x,w,b)
   for i in range(num_iters): 
       dj_dw, dj_db = gradient_function(x,y,w,b)  
       w = w - alpha * dj_dw
@@ -61,7 +60,8 @@ def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,reg
       if i < 100000: 
         J_history.append(cost_function(x,y,w,b))
         P_history.append([w,b])
-        #print(J_history)  
+        #print(J_history)   
+        
   print(tmp_f_wb)        
   plt.plot(x_train, tmp_f_wb, c='b',label='Our Prediction') 
   plt.scatter(x_train, y_train, marker='x', c='r',label='Actual Values')

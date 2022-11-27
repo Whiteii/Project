@@ -55,26 +55,22 @@ for i in range(number_of_simulation):
         
         
     if i%100  ==  1:
-    
-        if isFirst1: 
-            
+  
+        if isFirst1:            
             plt.scatter(inside_x_position,inside_y_position, c= 'Yellow' , s=50, label='Drop inside' ) 
             isFirst1 = False 
             plt.legend(loc=(0.75, 0.9))
-        else: 
-           
+        else:     
            plt.scatter(inside_x_position,inside_y_position, c='Yellow' , s=50, label='Drop inside') 
            #print(inside_x_position)
                   
   
         plt.figure(1)
-        if isFirst2:
-             
+        if isFirst2: 
             plt.scatter(outside_x_position,outside_y_position, c='Black' ,s=50,label='Drop outside')
             isFirst2 = False
             plt.legend(loc=(0.75, 0.9))
         else:
-           
            plt.scatter(outside_x_position,outside_y_position, c='Black' ,s=50, label='Drop outside') 
            plt.figure(1) 
            plt.draw()
@@ -82,9 +78,7 @@ for i in range(number_of_simulation):
            plt.subplot(1,2,1)  
            plt.annotate('π',[0,np.pi],fontsize=20, c = 'green')
            plt.axhline(y=np.pi, c='darkblue',linewidth=2,alpha=0.5)
-           plt.plot(x_axis,y_axis, color = 'navy', alpha = .75, lw = 2, ls = '-.', marker = 'o', markersize = 2)  
-           
-            
+           plt.plot(x_axis,y_axis, color = 'navy', alpha = .75, lw = 2, ls = '-.', marker = 'o', markersize = 2)             
 plt.show()   
         
         

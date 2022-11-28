@@ -93,7 +93,10 @@ WHERE referee_id IS NULL OR referee_id <> 2;
 
 _________________________________________________________________________________ 
 
-183. Customers Who Never Order 
+183. Customers Who Never Order - refer to this 
+
+
+
 Input: 
 Customers table:
 +----+-------+
@@ -128,7 +131,7 @@ Output:
 
 SELECT name as Customers 
 FROM Customers
-WHERE id NOT IN(SELECT customerId FROM Orders) 
+WHERE id NOT IN(SELECT customerId FROM Orders) #<--- think about this 
 
 _________________________________________________________________________________ 
 
@@ -158,9 +161,9 @@ Output:
 
 
 # Write your MySQL query statement below
-select employee_id, (if(employee_id % 2 != 0 and name not like 'M%', salary, 0)) as bonus
-    from Employees
-    order by employee_id;
+SELECT employee_id, (if(employee_id % 2 != 0 and name not like 'M%', salary, 0)) as bonus
+FROM Employees
+ORDER BY employee_id;
 _________________________________________________________________________________  
 
 

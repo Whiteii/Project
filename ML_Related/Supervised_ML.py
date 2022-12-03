@@ -55,8 +55,6 @@ def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,reg
       w = w - alpha * dj_dw
       b = b - alpha * dj_db
       tmp_f_wb = regression(x,w,b)
-      
-      
       if i < 100000: 
         J_history.append(cost_function(x,y,w,b))
         #print(J_history)

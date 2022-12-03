@@ -49,6 +49,7 @@ def linear_regression(x, w, b):
 def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,regression):
   J_history = []
   P_history = []
+  
   for i in range(num_iters): 
       dj_dw, dj_db = gradient_function(x,y,w,b)  
       w = w - alpha * dj_dw
@@ -58,10 +59,11 @@ def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,reg
       
       if i < 100000: 
         J_history.append(cost_function(x,y,w,b))
+        #print(J_history)
         P_history.append([w,b])
         #print(J_history)   
         
-  print(tmp_f_wb)        
+  #print(tmp_f_wb)        
   plt.plot(x_train, tmp_f_wb, c='b',label='Our Prediction') 
   plt.scatter(x_train, y_train, marker='x', c='r',label='Actual Values')
   plt.title("Housing Prices")
@@ -72,11 +74,11 @@ def gradient_descent(x,y,w,b,alpha,num_iters,cost_function,gradient_function,reg
   return w,b,J_history,P_history  
 
 x_train = np.array([1, 2,3,4,5,6,7,8,9,10,11,12,13])  
-y_train = np.array([-300, -400,-500,-600,-700,-800,-900,-1000,-1200,-1300,-1400,-1500,-1700])  
+y_train = np.array([-300, -400,-500,-600,-700,-800,-900,-30,-1200,-1000,-1400,-1500,-1700])  
 
 w_init = 0
 b_init = 0
-iterations = 100000
+iterations = 150000
 tmp_alpha = 0.01
 w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations, compute_model_output, compute_gradient,linear_regression) 
 

@@ -9,7 +9,7 @@ import numpy as np
 
 #Contact Information: Lianghui732@gmail.com
 #Name : Liang Zhang
-#Monte Carlo Simulation 
+#Monte Carlo Simulation -- to estimate the pi(3.14)
 #A video executing this project: https://www.youtube.com/watch?v=MGTitLi1QwQ
 
 number_of_simulation = int(input("Number Of Simulation"))

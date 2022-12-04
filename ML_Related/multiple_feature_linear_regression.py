@@ -1,8 +1,9 @@
 import numpy as np 
+import time
 
 # training sets
-x_train = np.array([[2104,5,1,45],[1416,3,2,40],[852,2,1,15]])
-y_train = np.array([460,232,178]) 
+x_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
+y_train = np.array([460, 232, 178])
 
 
 def predict_single_loop(x, w, b): 
@@ -34,7 +35,8 @@ def predict(x,w,b):
 x_vec = x_train[0,:]
 #print(f"x_vec shape {x_vec.shape}, x_vec value: {x_vec}")
 b_init = 785.1811367994083
-w_init = np.array([ 0.39, 18, -53, -26])
+w_init = np.array([ 0.39133535, 18.75376741, -53.36032453, -26.42131618]) 
+
 f_wb = predict_single_loop(x_vec, w_init, b_init)
 #print(f_wb)
 
@@ -64,36 +66,22 @@ print(f'Cost at optimal w : {cost}')
 
 
 def compute_gradient(X, y, w, b): 
-    """
-    Computes the gradient for linear regression 
-    Args:
-      X (ndarray (m,n)): Data, m examples with n features
-      y (ndarray (m,)) : target values
-      w (ndarray (n,)) : model parameters  
-      b (scalar)       : model parameter
-      
-    Returns:
-      dj_dw (ndarray (n,)): The gradient of the cost w.r.t. the parameters w. 
-      dj_db (scalar):       The gradient of the cost w.r.t. the parameter b. 
-    """
     m,n = X.shape #(number of examples, number of features)
-    print(X.shape)
-    
-    
+    #print(X.shape)
     dj_dw = np.zeros((n,))
+    #print(dj_dw)
     dj_db = 0.
-
     for i in range(m):                             
-        err = (np.dot(X[i], w) + b) - y[i]   
-        for j in range(n):                         
-            dj_dw[j] = dj_dw[j] + err * X[i, j]    
+        err = (np.dot(X[i], w) + b) - y[i] 
+        #print(F"err:{err}")  
+        for j in range(n):  
+            dj_dw[j] = dj_dw[j] + err * X[i, j]  
         dj_db = dj_db + err                        
     dj_dw = dj_dw / m                                
     dj_db = dj_db / m                                
         
     return dj_db, dj_dw
     
-
 #Compute and display gradient 
 tmp_dj_db, tmp_dj_dw = compute_gradient(x_train, y_train, w_init, b_init)
 print(f'dj_db at initial w,b: {tmp_dj_db}')

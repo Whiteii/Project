@@ -27,8 +27,8 @@ def compute_gradient(x,y,w,b):
     dj_dw_i = (f_wb - y[i]) * x[i]
     #print(dj_dw_i)
     dj_db_i = (f_wb - y[i])
-    dj_dw += dj_dw_i
-    dj_db += dj_db_i
+    dj_dw = dj_dw + dj_dw_i
+    dj_db = dj_db + dj_db_i
     
   dj_dw = dj_dw / m 
   #print(dj_dw)

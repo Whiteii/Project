@@ -33,26 +33,7 @@ print(std)
 print(mystat.probablity_density_function(std,median,-std,std)) # Within -1σ and 1σ    
 print(mystat.probablity_density_function(std,median,-std * 2,std * 2)) # Within -2σ and 2σ
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 domain = np.arange(-15, 16, 1)  
-
-
-
-
-
-
 plt.plot(domain, norm.pdf(domain,0,std)) 
 plt.xlabel(' Price % Change ') 
 plt.ylabel('Frequency')

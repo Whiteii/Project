@@ -38,4 +38,10 @@ x = [
      ]
 
 
-print(x[2])
+print(x[2]) 
+
+y = [ 
+    [1,2,3,4]
+     ]
+
+print(y.shape[0])

@@ -1,5 +1,9 @@
 import numpy as np 
-import time
+import time 
+import matplotlib.pyplot as plt  
+
+
+
 
 # training sets
 x_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]]) # shape 3 by 4 
@@ -38,29 +42,31 @@ def compute_cost(x, y, w, b):  # ---> this is the cost function <---
     return cost  
 
 cost = compute_cost(x_train, y_train, w_init, b_init)
-print(f'Cost at optimal w : {cost}') 
+#print(f'Cost at optimal w : {cost}') 
 
 
-def compute_gradient(X, y, w, b): 
-    m,n = X.shape #(number of examples, number of features)
+def compute_gradient(x, y, w, b): 
+    m,n = x.shape #(number of examples, number of features)
     #print(X.shape)
     dj_dw = np.zeros((n,))
     #print(dj_dw)
     dj_db = 0.
     for i in range(m):                             
-        err = (np.dot(X[i], w) + b) - y[i] 
-        #print(F"err:{err}")  
+        err = (np.dot(x[i], w) + b) - y[i] 
+        #print(F"err:{err}") 
         for j in range(n):  
-            dj_dw[j] = dj_dw[j] + err * X[i, j]  
-        dj_db = dj_db + err                        
+            #dj_dw[j] = dj_dw[j] + err * x[i, j]
+            print(x[i,j])  
+            dj_db = dj_db + err  
+                                     
     dj_dw = dj_dw / m                                
     dj_db = dj_db / m                                
     return dj_db, dj_dw
     
 #Compute and display gradient 
 tmp_dj_db, tmp_dj_dw = compute_gradient(x_train, y_train, w_init, b_init)
-print(f'dj_db at initial w,b: {tmp_dj_db}')
-print(f'dj_dw at initial w,b: \n {tmp_dj_dw}')
+#print(f'dj_db at initial w,b: {tmp_dj_db}')
+#print(f'dj_dw at initial w,b: \n {tmp_dj_dw}')
 
 
 def gradient_descent(x,y,w,b,alpha,num_iterations,gradient_function,cost_function):   
@@ -70,7 +76,21 @@ def gradient_descent(x,y,w,b,alpha,num_iterations,gradient_function,cost_functio
         w_n = w_n - alpha * dj_dw 
         b = b - alpha * dj_db
         if i < 100000: 
-            J_history.append(cost_function(x,y,w,b))
+            J_history.append(cost_function(x,y,w,b))                   
+        return J_history 
+    
+    
+
+
+alpha = 0.01 
+ilteration = 100000 
+
+test = gradient_descent(x_train,y_train,0,0,alpha,ilteration,compute_gradient,compute_cost)    
+print(test)         
+            
+
+    
+
 
 
  

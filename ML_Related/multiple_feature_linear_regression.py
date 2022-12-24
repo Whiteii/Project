@@ -77,7 +77,12 @@ def gradient_descent(x,y,w,b,alpha,num_iterations,gradient_function,cost_functio
 alpha = 0.01 
 ilteration = 100000 
 test = gradient_descent(x_train,y_train,0,0,alpha,ilteration,compute_gradient,compute_cost)    
-print(test)         
+print(test)       
+
+
+
+
+   
             
 
     

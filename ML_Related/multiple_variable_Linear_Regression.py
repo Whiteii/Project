@@ -13,8 +13,8 @@ def compute_cost(x,y,w,b):
     cost = 0 
     for i in range(m): 
         f_w_b = np.dot(x[i],w) + b 
-        cost = (f_w_b - y[i]) ** 2  + cost 
-    cost = (1/ (2 * m)) + cost
+        cost = cost + (f_w_b - y[i]) ** 2  
+    cost = (cost / (2 * m)) 
     return cost 
 
 def compute_gradient(x , y , w , b): 
@@ -31,7 +31,6 @@ def compute_gradient(x , y , w , b):
     return dj_dw, dj_db
 
 
-
 def gradient_descent(X, y, w_in, b_in, cost_function, gradient_function, alpha, num_iters): 
    
     J_history = []
@@ -39,23 +38,18 @@ def gradient_descent(X, y, w_in, b_in, cost_function, gradient_function, alpha, 
     b = b_in
     
     for i in range(num_iters):
-
         dj_dw,dj_db = gradient_function(X, y, w, b) 
-
         w = w - alpha * dj_dw 
         b = b - alpha * dj_db               
-      
         if i < 100000:     
-            J_history.append( cost_function(X, y, w, b)) 
-            
+            J_history.append(cost_function(X, y, w, b)) 
         if i % math.ceil(num_iters / 10) == 0:
-            print(f"Iteration {i:4d}: Cost {J_history[-1]:8.2f}   ")
- 
+            print(f"Iteration {i:4d}: Cost {J_history[-1]:8.2f}")
     return w, b, J_history   
      
 X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
 y_train = np.array([460, 232, 178])    
-w_init = np.array([ 0.39133535, 18.75376741, -53.36032453, -26.42131618])
+w_init = np.array([0.39133535, 18.75376741, -53.36032453, -26.42131618])
  
 initial_w = np.zeros_like(w_init)
 initial_b = 0.

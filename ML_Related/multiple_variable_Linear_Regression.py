@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 
 
 
-
 def compute_cost(x,y,w,b):
     m = x.shape[0] 
     cost = 0 

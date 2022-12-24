@@ -19,38 +19,62 @@ def compute_gradient(x,y,w,b):
     dj_db = 0.
     for i in range(m): 
         err = (np.dot(x[i],w) + b) - y[i]
-        #print('err',err) 
         for j in range(n):  
             dj_dw[j] = dj_dw[j] + err * x[i,j] 
         dj_db = dj_db + err 
     dj_dw = dj_dw/m
     dj_db = dj_db/m
     return dj_dw, dj_db
-    
-def gradient_descent(x,y,w,b,alpha,ilterate,gradient,cost):
-     
-    w_z = initial_w 
-    b_z = b_init
-    
+
+
+
+X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
+y_train_set = np.array([460, 232, 178])
+w_init = np.array([ 0.39133535, 18.75376741, -53.36032453, -26.42131618])
+b_init = 785.1811367994083
+
+
+
+
+tmp_dj_dw, tmp_dj_db = compute_gradient(X_train, y_train_set, w_init, b_init)
+print(f'dj_dw at initial w,b: {tmp_dj_dw}')
+print(f'dj_db at initial w,b: \n {tmp_dj_db}')
+
+
+
+
+
+
+
+
+
+   
+def gradient_descent(X,y,w,b,alpha,ilterate,gradient,cost):
+    J_history = []
+    w_z = w
+    b_z = b
     for i in range(ilterate): 
-        dj_dw, dj_db = gradient(x,y,w,b)
+        dj_dw, dj_db = gradient(X,y,w,b)
         w_z = w_z - alpha * dj_dw
         b_z = b_z - alpha * dj_db 
-        J_history = []
         if i < 10000:
-            J_history.append(cost(x,y,w,b)) 
-        
+            J_history.append(cost(X,y,w,b))
             
-        return w,b,ilteration,J_history
+        return w_z,b_z,ilteration,J_history
     
-X_train_set = np.array([[2104, 5, 1, 45],[1416,3,2,40],[852,2,1,35]])
+    
+    
+    
+    
+X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
 y_train_set = np.array([460, 232, 178])
 b_init = 0.
 ilteration = 1000
 w_init = np.array([ 0.39133535, 18.75376741, -53.36032453, -26.42131618])
 initial_w = np.zeros_like(w_init)
-print(initial_w)
-set_alpha = 0.001 
+set_alpha = 0.0000005
 
-gradient_descent(X_train_set,y_train_set,initial_w,b_init,set_alpha,ilteration,compute_gradient,compute_cost)
 
+w_z,b_z,ilteration,J_history = gradient_descent(X_train,y_train_set,initial_w,b_init,set_alpha,ilteration,compute_gradient,compute_cost)
+
+##print(b_z)

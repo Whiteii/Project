@@ -58,6 +58,7 @@ def gradient_descent(X, y, w_in, b_in, cost_function, gradient_function, alpha, 
             J_history.append( cost_function(X, y, w, b)) 
             
         if i % math.ceil(num_iters / 10) == 0:
+            print('i',i)
             print(f"Iteration {i:4d}: Cost {J_history[-1]:8.2f}   ")
  
     return w, b, J_history #return final w,b and J history for graphing  
@@ -68,47 +69,34 @@ initial_w = np.zeros_like(w_init)
 initial_b = 0.
 iterations = 1000
 alpha = 5.0e-7
-
-
-
-    
-w_final, b_final, J_hist = gradient_descent(X_train, y_train, initial_w, initial_b,compute_cost, compute_gradient, alpha, iterations)
-
-#print(w_final)
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
-y_train = np.array([460, 232, 178])
-initial_b = 0.
-iterations = 1000
-w_init = np.array([ 0.39133535, 18.75376741, -53.36032453, -26.42131618])
-initial_w = np.zeros_like(w_init)
-alpha = 5.0e-7 
+y_train = np.array([460, 232, 178])   
+
+print("test")
+
+
+
+
+
+
 
 w_final, b_final, J_hist = gradient_descent(X_train, y_train, initial_w, initial_b,compute_cost, compute_gradient, alpha, iterations)
 
-print(w_final)
 
 
-
-#w_z,b_z,ilteration,J_history = gradient_descent(X_train,y_train_set,initial_w,b_init,set_alpha,ilteration,compute_gradient,compute_cost)
-#print(w_z) 
-#print(b_z)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

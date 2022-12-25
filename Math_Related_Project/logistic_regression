@@ -8,35 +8,46 @@ def gradient_logistic(X,y,w,b):
     dj_db = 0 
     
     for i in range(0,m): 
-        f_wb_i = np.dot(x[i],w) + b
+        f_wb_i = np.dot(X[i],w) + b
         sigmoid = 1/(1+ math.exp(1) ** (-1 *  f_wb_i))
         err = sigmoid - y[i]
         for j in range(0,n):
-            dj_dw[j] = dj_dw[j] + err * x[i,j] 
+            dj_dw[j] = dj_dw[j] + err * X[i,j] 
         dj_db = dj_db + err
     dj_dw = dj_dw/m 
     dj_db = dj_db/m 
     return dj_dw, dj_db 
 
 
-X_tmp = np.array([[0.5,1.5], [1,1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])
-y_tmp = np.array([0, 0, 0, 1, 1, 1])  
+X_train = np.array([[0.5,1.5], [1,1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])
+y_train = np.array([0, 0, 0, 1, 1, 1])  
 w_tmp = np.array([2.,3.])
 b_tmp = 1.
 
-dj_dw, dj_db = gradient_logistic(X_tmp,y_tmp,w_tmp,b_tmp)
+dj_dw, dj_db = gradient_logistic(X_train,y_train,w_tmp,b_tmp)
 
 print(f"dj_dw and dj_db : {dj_dw,dj_db}")
 
 
 
-# add the cost parameter for graphing purposes 
-def gradient_descent(X,y,w,b,alpha,iteration,gradient,cost):  
-    w = np.zeros((4,)) 
-    b = 0 
+# add the cost parameter for graphing purposes if needed
+def gradient_descent(X,y,w_in,b_in,alpha,iteration,gradient):  
+    w = w_in
+    b = b_in
     for i in range(iteration): 
         dj_dw, dj_db = gradient(X,y,w,b)
         w = w - alpha * dj_dw 
         b = b - alpha * dj_db 
          
     return w,b 
+
+
+w_tmp  = np.zeros_like(X_train[0])
+b_tmp  = 0.
+alph = 0.1
+iters = 10000
+
+
+w,b = gradient_descent(X_train,y_train,w_tmp,b_tmp,alph,iters,gradient_logistic)
+
+print(w,b)

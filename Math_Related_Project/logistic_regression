@@ -2,10 +2,8 @@ import numpy as np
 import math  
 
 
-
-
-def gradient_logistic(x,y,w,b): 
-    m,n = x.shape 
+def gradient_logistic(X,y,w,b): 
+    m,n = X.shape 
     dj_dw = np.zeros((n,)) 
     dj_db = 0 
     
@@ -18,7 +16,7 @@ def gradient_logistic(x,y,w,b):
         dj_db = dj_db + err
     dj_dw = dj_dw/m 
     dj_db = dj_db/m 
-    return dj_db, dj_dw 
+    return dj_dw, dj_db 
 
 
 X_tmp = np.array([[0.5,1.5], [1,1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])
@@ -31,3 +29,14 @@ dj_dw, dj_db = gradient_logistic(X_tmp,y_tmp,w_tmp,b_tmp)
 print(f"dj_dw and dj_db : {dj_dw,dj_db}")
 
 
+
+# add the cost parameter for graphing purposes 
+def gradient_descent(X,y,w,b,alpha,iteration,gradient,cost):  
+    w = np.zeros((4,)) 
+    b = 0 
+    for i in range(iteration): 
+        dj_dw, dj_db = gradient(X,y,w,b)
+        w = w - alpha * dj_dw 
+        b = b - alpha * dj_db 
+         
+    return w,b 

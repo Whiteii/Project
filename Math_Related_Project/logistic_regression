@@ -2,6 +2,9 @@ import numpy as np
 import math  
 
 
+"Double Check On The Math"
+
+
 def gradient_logistic(X,y,w,b): 
     m,n = X.shape 
     dj_dw = np.zeros((n,)) 
@@ -26,7 +29,7 @@ b_tmp = 1.
 
 dj_dw, dj_db = gradient_logistic(X_train,y_train,w_tmp,b_tmp)
 
-print(f"dj_dw and dj_db : {dj_dw,dj_db}")
+#print(f"dj_dw and dj_db : {dj_dw,dj_db}")
 
 
 
@@ -50,4 +53,5 @@ iters = 10000
 
 w,b = gradient_descent(X_train,y_train,w_tmp,b_tmp,alph,iters,gradient_logistic)
 
-print(w,b)
+print(math.log(10,10))
+

@@ -1,0 +1,26 @@
+QUIZ 
+1. Which of these issues would compromise the accuracy of a dataset?
+
+answer : Some researchers measured distances in meters and others measured in yard s and records the values without units. 
+
+
+True or False: Because it is a subset of the population, a random sample will always perfectly represent the population. 
+
+
+answer : False 
+
+
+What are the two types of categorical variables?
+
+answer : ordinal is ordered and ordinal is unorder  
+
+
+
+
+What types of problems can messy data create? 
+first box is inconsistent, third box is missing, four inaccurate, last box is typos   
+
+
+
+
+Fill in the blanks to make the statement about a correlation coefficient true.

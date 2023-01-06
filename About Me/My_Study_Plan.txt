@@ -6,5 +6,5 @@ SQL for Data Science Course From the University of California Finish
 Start Stanford Machine Learning Expected To Complete On 12/26/2022 
 Going over complex integration on 11/18/2022 Complete 
 Go Over My Weakness In Math - Present
-Codecademy ML Course Up To SQL Manipulation - Expect Complete On 01/20/2023
+Codecademy ML Course Up To SQL Manipulation, Multiple Tables - Expect Complete On 01/20/2023
 Strength&Cardio WorkOut - Present

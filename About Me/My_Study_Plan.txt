@@ -1,6 +1,6 @@
 Start LeetCode From 10/28/2022 - Present
 Start Linear Algebra On Khan From 9/10/2022 - Present
-Start Mult-Cal Review On 11/30/2022 - Present Unit: Derivatives of multivariable functions - Present
+Start Mult-Cal Review On 11/30/2022 - Present Unit: Derivatives of multivariable functions(Curvature) - Present
 Finishing Prob & Stat On Khan On 11/30/2022 - Present
 SQL for Data Science Course From the University of California Finish
 Start Stanford Machine Learning Expected To Complete On 12/26/2022 
